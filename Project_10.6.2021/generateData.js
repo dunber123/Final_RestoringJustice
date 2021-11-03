@@ -130,6 +130,12 @@ function makeDocuments(count = 0) {
         fileDate: faker.date.past(),
         priorAttorneyName: faker.name.firstName(),
         priorAttorneyCaseload: faker.datatype.number(),
+        charges: [...Array(faker.datatype.number(5))].map(() => ({
+          charge: faker.random.word(),
+          degree: faker.random.word(),
+          punishmentRange: faker.random.word(),
+          disposition: faker.random.words(10),
+        })),
         case: {
           currentCourt: faker.random.word(),
           courtAddress: faker.address.streetAddress(),
