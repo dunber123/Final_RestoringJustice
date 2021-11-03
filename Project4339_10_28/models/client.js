@@ -11,11 +11,13 @@ const Schema = mongoose.Schema;
 let clientSchema = new Schema({
     caseNumber: { 
         type: String,
-        required: true
+        required: true,
+        uniqueItems: true // Added a unique field
     },
     clientNumber: {
         type: Number,
-        required: true
+        required: true,
+        uniqedItems: true // Added a unique field 
     },
     caseManager: {
         type: String,
@@ -32,7 +34,7 @@ let clientSchema = new Schema({
         type: Date
     },
     timeSpent: {//Time spent by caseManager. Multiple case managers?
-        type: String
+        type: Number // This is new 
     },
     managerNotes: {
         type: String
@@ -329,6 +331,7 @@ let clientSchema = new Schema({
             type: Date
         }
     },
+    // I feel like this could be an array but not sure?
     socialServiceInformation: [{//Tracks the client's referrals to any social service
         nutrition: [{
             referredTo: {//Tracks who they were referred to. NULL for no referral.
