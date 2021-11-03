@@ -12,12 +12,12 @@ let clientSchema = new Schema({
     caseNumber: { 
         type: String,
         required: true,
-        uniqueItems: true // Added a unique field
+        unique: true
     },
     clientNumber: {
         type: Number,
         required: true,
-        uniqedItems: true // Added a unique field 
+        unique: true
     },
     caseManager: {
         type: String,
@@ -34,7 +34,7 @@ let clientSchema = new Schema({
         type: Date
     },
     timeSpent: {//Time spent by caseManager. Multiple case managers?
-        type: Number // This is new 
+        type: Number
     },
     managerNotes: {
         type: String
