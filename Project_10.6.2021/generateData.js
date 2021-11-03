@@ -136,7 +136,7 @@ function makeDocuments(count = 0) {
           punishmentRange: faker.random.word(),
           disposition: faker.random.words(10),
         })),
-        case: {
+        /*case: {
           currentCourt: faker.random.word(),
           courtAddress: faker.address.streetAddress(),
           judgeName: faker.name.firstName(),
@@ -145,7 +145,7 @@ function makeDocuments(count = 0) {
           DefendentStatus: faker.random.word(),
           bondAmount: faker.commerce.price(),
           settlingDate: faker.date.past(),
-        },
+        },*/
       },
       socialServiceReferrals: [...Array(faker.datatype.number(5))].map(() => ({
         type: socialServiceTypes[Math.floor(Math.random() * socialServiceTypes.length)],
