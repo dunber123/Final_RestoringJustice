@@ -82,10 +82,12 @@ router.delete('/:id', getClient, async (req, res) => {
 }
 
 /// This works !! ///
+
+// Need to fix it to where it will only return first name, last name and case number per client
 async function getManager(req, res, next) {
     let manager
     try {
-        manager = await Client.findOne({caseManager: req.params.caseManager})
+        manager = await Client.find({caseManager: req.params.caseManager})
         if (manager == null) {
             return res.status(404).json({message: 'Cannot Find Any Clients Listed'})
         }
@@ -95,8 +97,28 @@ async function getManager(req, res, next) {
     res.manager = manager
     next()
 }
-module.exports = router
 
+
+// Added this 11/3/2021
+
+// Currently working on getting this functional
+  //Make a graph out of work hours spent on clients
+  //Search database by manager, return timeSpent fields if match
+  router.get('graph-maker/:manager', (req, res, next) => {
+    clientModel.find([
+      { $match: {caseManager: req.params.manager}},//Search database and match by manager. All records that have searched managers will be returned
+      { $project: {timeSpent: 1}}//Out of the returned records, display the timeSpent on the case.
+    ],
+      (error, data) => {
+        if (error) {
+          return next(error)
+        }
+        else {
+          res.json(data);
+        }
+    })
+  })
+module.exports = router
 
 
 // What do we still need? //
