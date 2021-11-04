@@ -13,10 +13,12 @@ let clientSchema = new Schema(
     caseNumber: {
       type: String,
       required: true,
+      unique: true
     },
     clientNumber: {
       type: Number,
       required: true,
+      unique: true
     },
     caseManager: {
       type: String,
