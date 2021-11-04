@@ -62,7 +62,7 @@ function makeDocuments(count = 0) {
         state: faker.address.state(),
         zip: faker.address.zipCode(),
         county: faker.address.county(),
-        heightWeight: `"${faker.datatype.number(9)}'${faker.datatype.number(12)} ${faker.datatype.number({ min: 175, max: 275 })}lb`, // "6'7 200lb",
+        heightWeight: `''${faker.datatype.number(9)}'${faker.datatype.number(12)} ${faker.datatype.number({ min: 175, max: 275 })}lb`, // "6'7 200lb",
         inCustody: faker.datatype.boolean(),
         ifYesLocation: null,
         adelphoi: faker.datatype.boolean(),
