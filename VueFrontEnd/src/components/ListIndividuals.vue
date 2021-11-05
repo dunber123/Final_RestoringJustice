@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="individual in Individuals" :key="individual._id">
-                        <td>{{ individual.firstName }}</td>
+                        <td>{{ individual.generalInformation.firstName }}</td>
                         <td>{{ individual.lastName }}</td>
                         <td>{{ individual.phoneNumber}}</td>
                         <td>{{ individual.street }}</td>
