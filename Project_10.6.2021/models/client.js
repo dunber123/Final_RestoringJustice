@@ -384,17 +384,6 @@ let clientSchema = new Schema(
 );
 
 // add mongoose-history to our schema
-const mongooseHistoryOptions = {
-  metadata: [
-    { 
-      key: 'caseManager', 
-      value: function(oldValue, updatedObject) { 
-        console.log({ oldValue, update: updatedObject.caseManager });
-        return oldValue 
-      } 
-    }
-  ]
-}
-clientSchema.plugin(mongooseHistory, mongooseHistoryOptions);
+clientSchema.plugin(mongooseHistory);
 
 module.exports = mongoose.model("clients", clientSchema); //sends schema to mongoose
