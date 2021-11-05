@@ -16,6 +16,8 @@ const mongo = mongoose.connection;
 // becase no top-level async
 (async () => {
   try {
+    // first clear the collection
+    await mongo.collection(COLLECTION_NAME).deleteMany({});
     const docsToAdd = makeDocuments(NUM_OF_DOCS_TO_CREATE);
     const insertResult = await mongo.collection(COLLECTION_NAME).insertMany(docsToAdd);
     console.log("RESULT:", { insertedDocs: insertResult.insertedCount });
@@ -124,7 +126,7 @@ function makeDocuments(count = 0) {
         notes: faker.random.words(),
         treatmentHistory: faker.random.words(),
       },
-      legalInformation: {
+      legalInformation: [...Array(faker.datatype.number(5))].map(() => ({
         legalCaseNumber: faker.datatype.number(),
         mentalCompentency: faker.datatype.boolean(),
         fileDate: faker.date.past(),
@@ -136,17 +138,15 @@ function makeDocuments(count = 0) {
           punishmentRange: faker.random.word(),
           disposition: faker.random.words(10),
         })),
-        /*case: {
-          currentCourt: faker.random.word(),
-          courtAddress: faker.address.streetAddress(),
-          judgeName: faker.name.firstName(),
-          courtType: faker.random.word(),
-          caseCompletionDate: faker.date.past(),
-          DefendentStatus: faker.random.word(),
-          bondAmount: faker.commerce.price(),
-          settlingDate: faker.date.past(),
-        },*/
-      },
+        currentCourt: faker.helpers.randomize(["Alpha", "Beta", "Gamma", "Delta"]),
+        courtAddress: faker.address.streetAddress(),
+        judgeName: faker.name.firstName(),
+        courtType: faker.random.word(),
+        caseCompletionDate: faker.date.past(),
+        defendentStatus: faker.random.word(),
+        bondAmount: faker.commerce.price(),
+        settlingDate: faker.date.past(),
+      })),
       socialServiceReferrals: [...Array(faker.datatype.number(5))].map(() => ({
         type: socialServiceTypes[Math.floor(Math.random() * socialServiceTypes.length)],
         caseManagerName: `${faker.name.firstName()} ${faker.name.lastName()}`,
