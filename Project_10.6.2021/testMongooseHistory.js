@@ -16,6 +16,7 @@ async function Main() {
   try {
     const docs = await Client.find();
     const SOME_DOC_ID = docs[0]._id;
+    console.log("modifying doc with _id of : " + docs[0]._id.toString());
     const updates = { caseManager: faker.name.firstName() };
     const result = await Client.findByIdAndUpdate(SOME_DOC_ID, updates);
     console.log(result.length);
