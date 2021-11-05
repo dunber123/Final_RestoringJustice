@@ -21,6 +21,7 @@ const clientsRouter = require('./router/client')
 app.use('/client', clientsRouter)
 
 // listen for requests
-app.listen(process.env.port || 4000, function(){
-    console.log('Ready to Go!');
+process.env.port = process.env.port || 3000
+app.listen(process.env.port, function(){
+    console.log('Ready to Go! Backend listening on port : ' + process.env.port);
 });

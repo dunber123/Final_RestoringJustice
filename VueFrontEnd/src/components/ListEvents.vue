@@ -14,10 +14,10 @@
                 <tbody>
                   
                     <tr v-for="client in Clients" :key="client._id">
-                        <td>{{ client.legalinformation.clientNumber}}</td>
+                        <td>{{ client.caseManager}}</td>
                         <td>{{ client.caseNumber }}</td>
-                        <td>{{ client }}</td>
-                        <td>{{ client.lastName }}</td>
+                        <td>{{ client.startDate }}</td>
+                        <td>{{ client.generalInformation.lastName }}</td>
                     
                     </tr>
                 </tbody>
@@ -39,7 +39,7 @@
         created() {
            
 
-            let apiURL1 = 'http://localhost:3000/client';
+            let apiURL1 = `${this.$hostname}/client`; // 'http://localhost:3000/client';
             axios.get(apiURL1).then(res => {
                 this.Clients = res.data;
             }).catch(error => {
