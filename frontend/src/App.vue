@@ -6,6 +6,9 @@
         <a class="navbar-brand float-left " href="/">Bread Of Life</a>
         <ul class="nav navbar-nav mr-auto" >
           <li class="nav-item">
+            <router-link class="nav-link" to="/intake">Intake Form</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/createevent">Add Event</router-link>
           </li>
           <li class="nav-item">

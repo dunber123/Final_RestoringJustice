@@ -1,11 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue';
+import Intake from '../views/Intake.vue';
 
 var routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/intake',
+    name: 'Intake',
+    component: Intake
   },
   {
     path: '/createevent',
@@ -52,9 +58,10 @@ var routes = [
     name: 'atthisevent',
     component: () => import('../components/IndividualAtEvent')
   }
-]
+];
 
 const router = createRouter({
+  mode: 'hash',
   history: createWebHistory(process.env.BASE_URL),
   routes // short for `routes: routes`
 })
