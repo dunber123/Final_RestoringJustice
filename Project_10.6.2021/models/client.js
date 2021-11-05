@@ -5,6 +5,7 @@
 //Rhahan Sarwar
 
 const mongoose = require("mongoose");
+const mongooseHistory = require("mongoose-history");
 const Schema = mongoose.Schema;
 
 //schema for client information
@@ -286,7 +287,7 @@ let clientSchema = new Schema(
         type: String,
       },
     },
-    legalInformation: {
+    legalInformation: [{
       //legal information regarding previous cases and their outcomes
       legalCaseNumber: {
         type: Number,
@@ -335,7 +336,7 @@ let clientSchema = new Schema(
       caseCompletionDate: {
         type: Date,
       },
-      DefendentStatus: {
+      defendentStatus: {
         type: String,
       },
       bondAmount: {
@@ -344,7 +345,7 @@ let clientSchema = new Schema(
       settlingDate: {
         type: Date,
       },
-    },
+    }],
     socialServiceReferrals: [
       {
         type: {
@@ -381,5 +382,19 @@ let clientSchema = new Schema(
     collection: "clients", //identifies as belonging to the client collection
   }
 );
+
+// add mongoose-history to our schema
+const mongooseHistoryOptions = {
+  metadata: [
+    { 
+      key: 'caseManager', 
+      value: function(oldValue, updatedObject) { 
+        console.log({ oldValue, update: updatedObject.caseManager });
+        return oldValue 
+      } 
+    }
+  ]
+}
+clientSchema.plugin(mongooseHistory, mongooseHistoryOptions);
 
 module.exports = mongoose.model("clients", clientSchema); //sends schema to mongoose
