@@ -126,7 +126,7 @@ function makeDocuments(count = 0) {
         notes: faker.random.words(),
         treatmentHistory: faker.random.words(),
       },
-      legalInformation: [...Array(faker.datatype.number(5))].map(() => ({
+      legalInformation: {
         legalCaseNumber: faker.datatype.number(),
         mentalCompentency: faker.datatype.boolean(),
         fileDate: faker.date.past(),
@@ -146,7 +146,7 @@ function makeDocuments(count = 0) {
         defendentStatus: faker.random.word(),
         bondAmount: faker.commerce.price(),
         settlingDate: faker.date.past(),
-      })),
+      },
       socialServiceReferrals: [...Array(faker.datatype.number(5))].map(() => ({
         type: socialServiceTypes[Math.floor(Math.random() * socialServiceTypes.length)],
         caseManagerName: `${faker.name.firstName()} ${faker.name.lastName()}`,
