@@ -25,14 +25,16 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Database"));
 
-// Setup routes
+// Setup client route
 app.use("/client", ClientsRouter);
-// Serve our frontend
-app.get("/", (_req, res) => {
+
+// To serve our frontend
+app.get(/.*/, (_req, res) => {
     const p = path.resolve(__dirname, '../frontend/dist/index.html');
     res.sendFile(p);
 });
-// 404 route
+
+// 404 "catch-all" route
 app.use((_req, res) => {
   res.status(404).send("<h1>unable to find that</h1>");
 });
