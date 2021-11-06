@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "lint": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -14,6 +14,7 @@
     "core-js": "^3.6.5",
     "echarts": "^5.2.1",
     "express": "^4.17.1",
+    "final_restoringjustice": "file:..",
     "vue": "^3.0.0",
     "vue-echarts": "^6.0.0",
     "vue-router": "^4.0.12"
