@@ -3,7 +3,7 @@
     <!-- Nav bar -->
     <nav class="navbar navbar-expand  navbar-dark bg-dark navbar-fixed-top">
       <div class="container">
-        <a class="navbar-brand float-left " href="/">Bread Of Life</a>
+        <a class="navbar-brand float-left " href="/">Restoring Justice</a>
         <ul class="nav navbar-nav mr-auto" >
           <li class="nav-item">
             <router-link class="nav-link" to="/intake">Intake Form</router-link>
