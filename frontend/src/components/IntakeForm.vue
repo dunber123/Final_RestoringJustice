@@ -84,12 +84,6 @@
 <script>
 import "bootstrap-vue-3";
 export default {
-  computed: {
-    isUsCitizenLabel() {
-      if (this.generalInformation.isUsCitizen === null) return "";
-      return this.generalInformation.isUsCitizen ? "Yes" : "No";
-    },
-  },
   data() {
     return {
       caseNumber: "",
