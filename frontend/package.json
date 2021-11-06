@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
-    "lint": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
+    "lint": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint",
+    "serve:og": "vue-cli-service serve",
+    "build:og": "vue-cli-service build",
+    "lint:og": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.24.0",
