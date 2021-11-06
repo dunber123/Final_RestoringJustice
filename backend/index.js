@@ -23,7 +23,7 @@ app.use(cors());
 mongoose.connect(process.env.database_url);
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
-db.once("open", () => console.log("Connected to Database"));
+db.once("open", () => console.log("Connected to Database : " + db.name));
 
 // Setup client route
 app.use("/client", ClientsRouter);
