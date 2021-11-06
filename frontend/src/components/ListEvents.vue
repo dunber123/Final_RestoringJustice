@@ -6,7 +6,7 @@
           <tr>
             <th>Case Manager</th>
             <th>Case Number</th>
-            <th>Start Date</th>
+            <th>First Name</th>
             <th>Last Name</th>
           </tr>
         </thead>
@@ -14,7 +14,7 @@
           <tr v-for="client in Clients" :key="client._id">
             <td>{{ client.caseManager }}</td>
             <td>{{ client.caseNumber }}</td>
-            <td>{{ client.startDate }}</td>
+            <td>{{ client.generalInformation.firstName }}</td>
             <td>{{ client.generalInformation.lastName }}</td>
           </tr>
         </tbody>

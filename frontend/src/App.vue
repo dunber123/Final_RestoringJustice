@@ -9,7 +9,7 @@
             <router-link class="nav-link" to="/intake">Intake Form</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/createevent">Add Event</router-link>
+            <router-link class="nav-link" to="/viewevent">View All Individuals</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/createindividual">Add Individual</router-link>
