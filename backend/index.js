@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const ClientsRouter = require("./router/client");
+const ClientsRouter = require("./router/client")
 
 // set up our express app
 const app = express();
@@ -34,7 +34,7 @@ app.get(/.*/, (_req, res) => {
     res.sendFile(p);
 });
 
-// 404 "catch-all" route
+// 404 "catchall" route
 app.use((_req, res) => {
   res.status(404).send("<h1>unable to find that</h1>");
 });

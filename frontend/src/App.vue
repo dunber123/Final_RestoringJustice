@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Nav bar -->
-    <nav class="navbar navbar-expand  navbar-dark bg-dark navbar-fixed-top">
+    <nav class="navbar navbar-expand  navbar-dark bg-dark navbar-fixed-top"> 
       <div class="container">
         <a class="navbar-brand float-left " href="/">Bread Of Life</a>
         <ul class="nav navbar-nav mr-auto" >

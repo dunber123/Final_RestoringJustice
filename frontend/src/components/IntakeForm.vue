@@ -1,34 +1,44 @@
 <template>
   <div>
-    <label for="caseNumber">Case Number:</label>
-    <b-form-input
-      id="caseNumber"
-      v-model="caseNumber"
-      placeholder="Enter Case #"
-      trim
-    ></b-form-input>
+    <div class="m-2">
+      <label for="caseNumber">Case Number:</label>
+      <b-form-input
+        id="caseNumber"
+        v-model="caseNumber"
+        placeholder="Enter Case #"
+        trim
+      ></b-form-input>
+    </div>
 
-    <label for="clientNumber">Client Number:</label>
-    <b-form-input
-      id="clientNumber"
-      v-model="clientNumber"
-      placeholder="Enter Client #"
-      trim
-    ></b-form-input>
+    <div class="m-2">
+      <label for="clientNumber">Client Number:</label>
+      <b-form-input
+        id="clientNumber"
+        v-model="clientNumber"
+        placeholder="Enter Client #"
+        trim
+      ></b-form-input>
+    </div>
 
-    <label for="startDatePicker">Start Date:</label>
-    <b-form-datepicker id="startDatePicker" v-model="startDate" class="mb-2"></b-form-datepicker>
+    <div class="m-2">
+      <label for="startDatePicker">Start Date:</label>
+      <input type="Date" class="form-control" v-model="startDate">
+    </div>
 
-    <label for="closeDatePicker">Close Date:</label>
-    <b-form-datepicker id="closeDatePicker" v-model="closeDate" class="mb-2"></b-form-datepicker>
+    <div class="m-2">
+      <label for="closeDatePicker">Close Date:</label>
+      <input type="Date" class="form-control" v-model="closeDate">
+    </div>
 
-    <b-form-group label="Income Information">
+    <div>
+      <h3>General Information</h3>
 
-    </b-form-group>
+    </div>
   </div>
 </template>
 
 <script>
+import 'bootstrap-vue-3'
   export default {
     // computed: {
     //   caseNumberState() {
@@ -41,6 +51,35 @@
         clientNumber: '',
         startDate: null,
         closeDate: null,
+        generalInformation: {
+          lastName: '',
+          firstName: '',
+          middleName: '',
+          birthdate: '',
+          ssn: '',
+          isUsCitizen: '',
+          gender: '',
+          identificationNumber: ''
+        },
+        residenceInformation: {
+          streetAddress: '',
+          city: '',
+          state: '',
+          zip: '',
+          county: '',
+          totalRent: '',
+          isUtilitiesIncluded: '',
+          isSubsidized: '',
+          isSingleParent: '',
+          heightWeight: '',
+          isInCustody: '',
+          inCustodyLocation: null,
+          isAdelphoi: '',
+          adelphoiName: '',
+        },
+        contactInformation: {
+          
+        }
       }
     }
   }
