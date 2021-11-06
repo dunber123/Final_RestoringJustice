@@ -9,10 +9,10 @@
             <router-link class="nav-link" to="/intake">Intake Form</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/viewevent">View All Individuals</router-link>
+            <router-link class="nav-link" to="/viewevent">View All Individuals</router-link> <!-- How hard is a search box by name function? -->
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/createindividual">Add Individual</router-link>
+            <router-link class="nav-link" to="/createindividual">View Single Individual</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/viewevent">View Events</router-link>
