@@ -211,11 +211,11 @@
           <label for="contact.maritalStatus">Marital Status:</label>
           <b-form-group id="contact.maritalStatus">
             <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="single">Single</b-form-radio>
-            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="married">Married</b-form-radio>
-            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="separated">Separated</b-form-radio>
-            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="divorced">Divorced</b-form-radio>
-            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="widow">Widow</b-form-radio>
-            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="common law">Common Law</b-form-radio>
+            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="married">Married</b-form-radio>
+            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="separated">Separated</b-form-radio>
+            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="divorced">Divorced</b-form-radio>
+            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="widow">Widow</b-form-radio>
+            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="common law">Common Law</b-form-radio>
           </b-form-group>
         </b-col>
       </b-row>
