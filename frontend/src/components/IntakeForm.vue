@@ -263,11 +263,6 @@
 
 <script>
 export default {
-  methods: {
-    getInCustodySize: function() {
-      return this.residenceInformation.inCustody ? "6" : "12";
-    }
-  },
   data() {
     return {
       // this is for our form state, and should not be submitted to backend
