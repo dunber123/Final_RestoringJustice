@@ -31,10 +31,12 @@
       </b-col>
     </b-row>
 
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
     <!-- GENERAL INFORMATION -->
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
     <div class="mt-4">
-      <h3>General Information</h3>
+      <h1>General Information</h1>
       <!-- General Info : First row -->
       <b-row class="justify-content-center my-2">
         <b-col col md="4">
@@ -67,14 +69,14 @@
           <label for="general.identificationNumber">ID/TX Drivers License:</label>
           <b-form-input id="general.identificationNumber" v-model="generalInformation.identificationNumber" placeholder="ID or TX DL" trim></b-form-input>
         </b-col>
-        <b-col col md="3" style="border: 1px solid gray">
+        <b-col col md="3">
           <label for="general.isUsCitizen">Is US Citizen?:</label>
           <b-form-group id="general.isUsCitizen">
             <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.y" value="true">Yes</b-form-radio>
             <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.n" value="false">No</b-form-radio>
           </b-form-group>
         </b-col>
-        <b-col col md="3" style="border: 1px solid black">
+        <b-col col md="3">
           <label for="general.gender">Gender:</label>
           <b-form-group id="general.gender">
             <b-form-radio v-model="generalInformation.gender" name="general.gender.f" value="female">Female</b-form-radio>
@@ -84,10 +86,12 @@
       </b-row>
     </div>
 
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
     <!-- RESIDENCE INFORMATION -->
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
     <div class="mt-4">
-      <h3>Residence Information</h3>
+      <h1>Residence Information</h1>
       <!-- Residence Info : First row -->
       <b-row class="justify-content-center my-2">
         <b-col col md="6">
@@ -143,10 +147,114 @@
       </b-row>
     </div>
 
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
     <!-- CONTACT INFORMATION -->
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
     <div class="mt-4">
-      <h3>Contact Information</h3>
+      <h1>Contact Information</h1>
+      <!-- Contact Info : First row -->
+      <b-row class="my-2">
+        <b-col col md="3">
+          <label for="contactInformation.homePhone">Home Phone:</label>
+          <b-form-input id="contactInformation.homePhone" v-model="contactInformation.homePhone" placeholder="Home Phone" trim></b-form-input>
+        </b-col>
+        <b-col col md="3">
+          <label for="contact.work">Work Phone:</label>
+          <b-form-input id="contact.work" v-model="contactInformation.work" placeholder="Work" trim></b-form-input>
+        </b-col>
+        <b-col col md="3">
+          <label for="contact.cell">Cell Phone:</label>
+          <b-form-input id="contact.cell" v-model="contactInformation.cell" placeholder="Cell" trim></b-form-input>
+        </b-col>
+        <b-col col md="3">
+          <label for="contact.other">Other:</label>
+          <b-form-input id="contact.other" v-model="contactInformation.other" placeholder="Other" trim></b-form-input>
+        </b-col>
+      </b-row>
+      <!-- Contact Info : Second row -->
+      <b-row class="my-2">
+        <b-col col md="3">
+          <label for="contact.personalEmail">Personal Email:</label>
+          <b-form-input id="contact.personalEmail" v-model="contactInformation.personalEmail" placeholder="Personal Email" trim></b-form-input>
+        </b-col>
+        <b-col col md="3">
+          <label for="contact.otherEmail">Other Email:</label>
+          <b-form-input id="contact.otherEmail" v-model="contactInformation.otherEmail" placeholder="Other Email" trim></b-form-input>
+        </b-col>
+        <b-col col md="3">
+          <label for="contact.language">Language:</label>
+          <b-form-select v-model="selected.language" id="contact.language">
+            <b-form-select-option value="">Select Language</b-form-select-option>
+            <b-form-select-option value="spanish">Spanish</b-form-select-option>
+            <b-form-select-option value="english">English</b-form-select-option>
+            <b-form-select-option value="bilingual">Bilingual</b-form-select-option>
+            <b-form-select-option value="other">Other</b-form-select-option>
+          </b-form-select>
+          <b-form-input v-if="selected.language === 'other'" id="contact.language" v-model="contactInformation.language" placeholder="Enter Language" trim></b-form-input>
+        </b-col>
+        <b-col col md="3">
+          <label for="contact.ethnicity">Ethnicity:</label>
+          <b-form-select v-model="selected.ethnicity" id="contact.ethnicity">
+            <b-form-select-option value="">Select Ethnicity</b-form-select-option>
+            <b-form-select-option value="hispanic\latino">Hispanic\Latino</b-form-select-option>
+            <b-form-select-option value="african\american">African\American</b-form-select-option>
+            <b-form-select-option value="white\nonhispanic">White\Non-Hispanic</b-form-select-option>
+            <b-form-select-option value="other">Other</b-form-select-option>
+          </b-form-select>
+          <b-form-input v-if="selected.ethnicity === 'other'" id="contact.ethnicity" v-model="contactInformation.ethnicity" placeholder="Enter Ethnicity" trim></b-form-input>
+        </b-col>
+      </b-row>
+      <!-- Contact Info : Third row -->
+      <b-row class="my-2">
+        <b-col col md="3" class="mt-2">
+          <label for="contact.maritalStatus">Marital Status:</label>
+          <b-form-group id="contact.maritalStatus">
+            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="single">Single</b-form-radio>
+            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="married">Married</b-form-radio>
+            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="separated">Separated</b-form-radio>
+            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="divorced">Divorced</b-form-radio>
+            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="widow">Widow</b-form-radio>
+            <b-form-radio v-model="generalInformation.maritalStatus" name="contact.maritalStatusRadio" value="common law">Common Law</b-form-radio>
+          </b-form-group>
+        </b-col>
+      </b-row>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+    <!-- EMPLOYMENT INFORMATION -->
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+    <div class="mt-4">
+      <h1>Employment Information</h1>
+      <b-row>
+        <b-col col md="3" class="mt-2">
+          <b-form-group id="empoloyment.group">
+            <b-form-radio v-model="selected.employment" value="employed">Employed</b-form-radio>
+            <b-form-radio v-model="selected.employment" value="unemployed">Unemployed</b-form-radio>
+            <b-form-radio v-model="selected.employment" value="retired">Retired</b-form-radio>
+            <b-form-radio v-model="selected.employment" value="housewife">Housewife</b-form-radio>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col col md="4">
+          <label v-if="selected.employment === 'employed'" for="employment.length">Employment Length:</label>
+          <b-form-input v-if="selected.employment === 'employed'" id="employment.length" v-model="employmentInformation.employmentLength" placeholder="Employment Length" trim></b-form-input>
+        </b-col> 
+        <b-col col md="4">
+          <label v-if="selected.employment === 'employed'" for="employment.employer">Employer:</label>
+          <b-form-input v-if="selected.employment === 'employed'" id="employment.employer" v-model="employmentInformation.employer" placeholder="Employer" trim></b-form-input>
+        </b-col> 
+        <b-col col md="4">
+          <label v-if="selected.employment === 'employed'" for="employment.occupation">Occupation:</label>
+          <b-form-input v-if="selected.employment === 'employed'" id="employment.occupation" v-model="employmentInformation.occupation" placeholder="Occupation" trim></b-form-input>
+        </b-col> 
+        <b-col col md="4">
+          <label v-if="selected.employment === 'unemployed'" for="employment.unemployedLength">Unemployed Length:</label>
+          <b-form-input v-if="selected.employment === 'unemployed'" id="employment.unemployedLength" v-model="employmentInformation.unemployedLength" placeholder="Unemployed Length" trim></b-form-input>
+        </b-col>
+      </b-row>
     </div>
 
     <!-- END OF FORM -->
@@ -162,6 +270,13 @@ export default {
   },
   data() {
     return {
+      // this is for our form state, and should not be submitted to backend
+      selected: {
+        language: "",
+        ethnicity: "",
+        employment: "",
+      },
+      // this data can be submitted to backend
       caseNumber: "",
       clientNumber: "",
       startDate: null,
@@ -192,7 +307,25 @@ export default {
         adelphoi: false, // Default to false since we only use a checkbox
         adelphoiName: null,
       },
-      contactInformation: {},
+      contactInformation: {
+        homePhone: "",
+        work: "",
+        cell: "",
+        other: "",
+        personalEmail: "",
+        otherEmail: "",
+        maritalStatus: "",
+        language: "",
+        ethnicity: ""
+      },
+      employmentInformation: {
+        employmentLength: "",
+        employer: "",
+        occupation: "",
+        unemploymentLength: "",
+        retirementLength: "",
+        housewife: false,
+      }
     };
   },
 };
