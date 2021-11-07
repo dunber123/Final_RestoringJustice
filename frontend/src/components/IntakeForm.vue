@@ -395,6 +395,7 @@
               <b-form-radio v-model="insuranceInformation.insuranceProvider" value="chip">CHIP</b-form-radio>
               <b-form-radio v-model="insuranceInformation.insuranceProvider" value="goldcard">GoldCard</b-form-radio>
               <b-form-radio v-model="insuranceInformation.insuranceProvider" value="wic">WIC</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="other">Other</b-form-radio>
             </b-form-group>
           </b-col>
         </b-row>
@@ -409,7 +410,7 @@
           </b-col>
           <b-col v-if="insuranceInformation.foodStamps === 'true'" col md="8">
             <label for="insurance.howMuch">How Much?:</label>
-            <b-form-input id="income.howMuch" v-model="incomeInformation.howMuch" placeholder="Food Stamps How Much" trim></b-form-input>
+            <b-form-input id="income.howMuch" v-model="incomeInformation.howMuch" placeholder="How much" trim></b-form-input>
           </b-col>
           <b-col v-if="insuranceInformation.foodStamps === 'false'" col md="8">
             <label for="insurance.whyNot">Why Not?:</label>
