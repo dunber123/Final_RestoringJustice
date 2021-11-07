@@ -1,325 +1,457 @@
 <template>
-  <!-- START OF FORM -->
-  <b-container>
-    <b-row class="justify-content-md-center">
-      <b-col col md="5">
-        <div class="my-2">
-          <label for="caseNumber">Case Number:</label>
-          <b-form-input id="caseNumber" v-model="caseNumber" placeholder="Enter Case #" trim></b-form-input>
-        </div>
-      </b-col>
-      <b-col col md="5">
-        <div class="my-2">
-          <label for="clientNumber">Client Number:</label>
-          <b-form-input id="clientNumber" v-model="clientNumber" placeholder="Enter Client #" trim></b-form-input>
-        </div>
-      </b-col>
-    </b-row>
+  <div class="form-container">
+    <!-- START OF FORM -->
+    <b-container fluid>
+      <b-row class="justify-content-md-center">
+        <b-col col md="5">
+          <div class="my-2">
+            <label for="caseNumber">Case Number:</label>
+            <b-form-input id="caseNumber" v-model="caseNumber" placeholder="Enter Case #" trim></b-form-input>
+          </div>
+        </b-col>
+        <b-col col md="5">
+          <div class="my-2">
+            <label for="clientNumber">Client Number:</label>
+            <b-form-input id="clientNumber" v-model="clientNumber" placeholder="Enter Client #" trim></b-form-input>
+          </div>
+        </b-col>
+      </b-row>
 
-    <b-row class="justify-content-center">
-      <b-col col md="5">
-        <div class="my-2">
-          <label for="startDatePicker">Start Date:</label>
-          <input type="Date" class="form-control" v-model="startDate" />
-        </div>
-      </b-col>
-      <b-col col md="5">
-        <div class="my-2">
-          <label for="closeDatePicker">Close Date:</label>
-          <input type="Date" class="form-control" v-model="closeDate" />
-        </div>
-      </b-col>
-    </b-row>
+      <b-row class="justify-content-center">
+        <b-col col md="5">
+          <div class="my-2">
+            <label for="startDatePicker">Start Date:</label>
+            <input type="Date" class="form-control" v-model="startDate" />
+          </div>
+        </b-col>
+        <b-col col md="5">
+          <div class="my-2">
+            <label for="closeDatePicker">Close Date:</label>
+            <input type="Date" class="form-control" v-model="closeDate" />
+          </div>
+        </b-col>
+      </b-row>
 
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
-    <!-- GENERAL INFORMATION -->
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- GENERAL INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
-    <div class="mt-4">
-      <h1>General Information</h1>
-      <!-- General Info : First row -->
-      <b-row class="justify-content-center my-2">
-        <b-col col md="4">
-          <label for="general.firstName">First Name:</label>
-          <b-form-input id="general.firstName" v-model="generalInformation.firstName" placeholder="First Name:" trim></b-form-input>
-        </b-col>
-        <b-col col md="4">
-          <label for="general.lastName">Last Name:</label>
-          <b-form-input id="general.lastName" v-model="generalInformation.lastName" placeholder="Last Name:" trim></b-form-input>
-        </b-col>
-        <b-col col md="4">
-          <label for="general.middleName">Middle Name:</label>
-          <b-form-input id="general.middleName" v-model="generalInformation.middleName" placeholder="Middle Name:" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <!-- General Info : Second row -->
-      <b-row class="justify-content-center my-2">
-        <b-col col md="6">
-          <label for="general.birthDate">Birth Date:</label>
-          <input id="general.birthDate" type="Date" class="form-control" v-model="generalInformation.birthdate" />
-        </b-col>
-        <b-col col md="6">
-          <label for="general.ssn">SSN:</label>
-          <b-form-input id="general.ssn" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <!-- General Info : Third row -->
-      <b-row class="justify-content-center my-2">
-        <b-col col md="6">
-          <label for="general.identificationNumber">ID/TX Drivers License:</label>
-          <b-form-input id="general.identificationNumber" v-model="generalInformation.identificationNumber" placeholder="ID or TX DL" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="general.isUsCitizen">Is US Citizen?:</label>
-          <b-form-group id="general.isUsCitizen">
-            <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.y" value="true">Yes</b-form-radio>
-            <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.n" value="false">No</b-form-radio>
-          </b-form-group>
-        </b-col>
-        <b-col col md="3">
-          <label for="general.gender">Gender:</label>
-          <b-form-group id="general.gender">
-            <b-form-radio v-model="generalInformation.gender" name="general.gender.f" value="female">Female</b-form-radio>
-            <b-form-radio v-model="generalInformation.gender" name="general.gender.m" value="male">Male</b-form-radio>
-          </b-form-group>
-        </b-col>
-      </b-row>
-    </div>
+      <div class="mt-4">
+        <h2>General Information</h2>
+        <!-- General Info : First row -->
+        <b-row class="justify-content-center my-2">
+          <b-col col md="4">
+            <label for="general.firstName">First Name:</label>
+            <b-form-input id="general.firstName" v-model="generalInformation.firstName" placeholder="First Name:" trim></b-form-input>
+          </b-col>
+          <b-col col md="4">
+            <label for="general.lastName">Last Name:</label>
+            <b-form-input id="general.lastName" v-model="generalInformation.lastName" placeholder="Last Name:" trim></b-form-input>
+          </b-col>
+          <b-col col md="4">
+            <label for="general.middleName">Middle Name:</label>
+            <b-form-input id="general.middleName" v-model="generalInformation.middleName" placeholder="Middle Name:" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- General Info : Second row -->
+        <b-row class="justify-content-center my-2">
+          <b-col col md="6">
+            <label for="general.birthDate">Birth Date:</label>
+            <input id="general.birthDate" type="Date" class="form-control" v-model="generalInformation.birthdate" />
+          </b-col>
+          <b-col col md="6">
+            <label for="general.ssn">SSN:</label>
+            <b-form-input id="general.ssn" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- General Info : Third row -->
+        <b-row class="justify-content-center my-2">
+          <b-col col md="6">
+            <label for="general.identificationNumber">ID/TX Drivers License:</label>
+            <b-form-input id="general.identificationNumber" v-model="generalInformation.identificationNumber" placeholder="ID or TX DL" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="general.isUsCitizen">Is US Citizen?:</label>
+            <b-form-group id="general.isUsCitizen">
+              <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.y" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.n" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+          <b-col col md="3">
+            <label for="general.gender">Gender:</label>
+            <b-form-group id="general.gender">
+              <b-form-radio v-model="generalInformation.gender" name="general.gender.f" value="female">Female</b-form-radio>
+              <b-form-radio v-model="generalInformation.gender" name="general.gender.m" value="male">Male</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
 
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
-    <!-- RESIDENCE INFORMATION -->
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- RESIDENCE INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
-    <div class="mt-4">
-      <h1>Residence Information</h1>
-      <!-- Residence Info : First row -->
-      <b-row class="justify-content-center my-2">
-        <b-col col md="6">
-          <label for="residence.address">Street Address:</label>
-          <b-form-input id="residence.address" v-model="residenceInformation.streetAddress" placeholder="Address" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="residence.city">City:</label>
-          <b-form-input id="residence.city" v-model="residenceInformation.city" placeholder="City" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="residence.state">State:</label>
-          <b-form-input id="residence.state" v-model="residenceInformation.state" placeholder="State" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <!-- Residence Info : Second row -->
-      <b-row class="justify-content-center my-2">
-        <b-col col md="3">
-          <label for="residence.county">County:</label>
-          <b-form-input id="residence.county" v-model="residenceInformation.county" placeholder="County" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="residence.heightWeight">Height\Weight:</label>
-          <b-form-input id="residence.heightWeight" v-model="residenceInformation.heightWeight" placeholder="6 feet 9 inches 190lbs" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="residence.totalRent">Total Rent:</label>
-          <b-form-input id="residence.totalRent" v-model="residenceInformation.totalRent" placeholder="Rent" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <b-form-checkbox v-model="residenceInformation.utilitiesIncluded" value="true">Utilties Included?</b-form-checkbox>
-          <b-form-checkbox v-model="residenceInformation.rentSubsidized" value="true">Is your rent subsidized?</b-form-checkbox>
-          <b-form-checkbox v-model="residenceInformation.singleParent" value="true">Are you a single parent?</b-form-checkbox>
-        </b-col>
-      </b-row>
-      <!-- Residence Info : Third row -->
-      <b-row class="justify-content-left my-2">
-        <b-col col md="2">
-          <b-form-checkbox v-model="residenceInformation.inCustody" value="true">In Custody?</b-form-checkbox>
-          <b-form-checkbox v-model="residenceInformation.adelphoi" value="true">Adelphoi?</b-form-checkbox>
-        </b-col>
-      </b-row>
-      <!-- Residence Info : Fourth row -->
-      <b-row>
-        <b-col v-if="residenceInformation.inCustody" col md="10">
-          <label for="residence.inCustodyLocation">In Custody at Location:</label>
-          <b-form-input id="residence.inCustodyLocation" v-model="residenceInformation.inCustodyLocation" placeholder="In Custody Location" trim></b-form-input>
-        </b-col>
-        <b-col v-if="residenceInformation.adelphoi" col md="10">
-          <label for="residence.adelphoiName">Adelphoi Name:</label>
-          <b-form-input id="residence.adelphoiName" v-model="residenceInformation.adelphoiName" placeholder="Adelphoi Name" trim></b-form-input>
-        </b-col>
-      </b-row>
-    </div>
+      <div class="mt-4">
+        <h2>Residence Information</h2>
+        <!-- Residence Info : First row -->
+        <b-row class="justify-content-center my-2">
+          <b-col col md="6">
+            <label for="residence.address">Street Address:</label>
+            <b-form-input id="residence.address" v-model="residenceInformation.streetAddress" placeholder="Address" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="residence.city">City:</label>
+            <b-form-input id="residence.city" v-model="residenceInformation.city" placeholder="City" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="residence.state">State:</label>
+            <b-form-input id="residence.state" v-model="residenceInformation.state" placeholder="State" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Residence Info : Second row -->
+        <b-row class="justify-content-center my-2">
+          <b-col col md="3">
+            <label for="residence.county">County:</label>
+            <b-form-input id="residence.county" v-model="residenceInformation.county" placeholder="County" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="residence.heightWeight">Height\Weight:</label>
+            <b-form-input id="residence.heightWeight" v-model="residenceInformation.heightWeight" placeholder="6 feet 9 inches 190lbs" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="residence.totalRent">Total Rent:</label>
+            <b-form-input id="residence.totalRent" v-model="residenceInformation.totalRent" placeholder="Rent" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <b-form-checkbox v-model="residenceInformation.utilitiesIncluded" value="true">Utilties Included?</b-form-checkbox>
+            <b-form-checkbox v-model="residenceInformation.rentSubsidized" value="true">Is your rent subsidized?</b-form-checkbox>
+            <b-form-checkbox v-model="residenceInformation.singleParent" value="true">Are you a single parent?</b-form-checkbox>
+          </b-col>
+        </b-row>
+        <!-- Residence Info : Third row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="2">
+            <b-form-checkbox v-model="residenceInformation.inCustody" value="true">In Custody?</b-form-checkbox>
+            <b-form-checkbox v-model="residenceInformation.adelphoi" value="true">Adelphoi?</b-form-checkbox>
+          </b-col>
+        </b-row>
+        <!-- Residence Info : Fourth row -->
+        <b-row>
+          <b-col v-if="residenceInformation.inCustody" col md="10">
+            <label for="residence.inCustodyLocation">In Custody at Location:</label>
+            <b-form-input id="residence.inCustodyLocation" v-model="residenceInformation.inCustodyLocation" placeholder="In Custody Location" trim></b-form-input>
+          </b-col>
+          <b-col v-if="residenceInformation.adelphoi" col md="10">
+            <label for="residence.adelphoiName">Adelphoi Name:</label>
+            <b-form-input id="residence.adelphoiName" v-model="residenceInformation.adelphoiName" placeholder="Adelphoi Name" trim></b-form-input>
+          </b-col>
+        </b-row>
+      </div>
 
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
-    <!-- CONTACT INFORMATION -->
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- CONTACT INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
-    <div class="mt-4">
-      <h1>Contact Information</h1>
-      <!-- Contact Info : First row -->
-      <b-row class="my-2">
-        <b-col col md="3">
-          <label for="contactInformation.homePhone">Home Phone:</label>
-          <b-form-input id="contactInformation.homePhone" v-model="contactInformation.homePhone" placeholder="Home Phone" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="contact.work">Work Phone:</label>
-          <b-form-input id="contact.work" v-model="contactInformation.work" placeholder="Work" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="contact.cell">Cell Phone:</label>
-          <b-form-input id="contact.cell" v-model="contactInformation.cell" placeholder="Cell" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="contact.other">Other:</label>
-          <b-form-input id="contact.other" v-model="contactInformation.other" placeholder="Other" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <!-- Contact Info : Second row -->
-      <b-row class="my-2">
-        <b-col col md="3">
-          <label for="contact.personalEmail">Personal Email:</label>
-          <b-form-input id="contact.personalEmail" v-model="contactInformation.personalEmail" placeholder="Personal Email" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="contact.otherEmail">Other Email:</label>
-          <b-form-input id="contact.otherEmail" v-model="contactInformation.otherEmail" placeholder="Other Email" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="contact.language">Language:</label>
-          <b-form-select v-model="selected.language" id="contact.language">
-            <b-form-select-option value="">Select Language</b-form-select-option>
-            <b-form-select-option value="spanish">Spanish</b-form-select-option>
-            <b-form-select-option value="english">English</b-form-select-option>
-            <b-form-select-option value="bilingual">Bilingual</b-form-select-option>
-            <b-form-select-option value="other">Other</b-form-select-option>
-          </b-form-select>
-          <b-form-input v-if="selected.language === 'other'" id="contact.language" v-model="contactInformation.language" placeholder="Enter Language" trim></b-form-input>
-        </b-col>
-        <b-col col md="3">
-          <label for="contact.ethnicity">Ethnicity:</label>
-          <b-form-select v-model="selected.ethnicity" id="contact.ethnicity">
-            <b-form-select-option value="">Select Ethnicity</b-form-select-option>
-            <b-form-select-option value="hispanic\latino">Hispanic\Latino</b-form-select-option>
-            <b-form-select-option value="african\american">African\American</b-form-select-option>
-            <b-form-select-option value="white\nonhispanic">White\Non-Hispanic</b-form-select-option>
-            <b-form-select-option value="other">Other</b-form-select-option>
-          </b-form-select>
-          <b-form-input v-if="selected.ethnicity === 'other'" id="contact.ethnicity" v-model="contactInformation.ethnicity" placeholder="Enter Ethnicity" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <!-- Contact Info : Third row -->
-      <b-row class="my-2">
-        <b-col col md="3" class="mt-2">
-          <label for="contact.maritalStatus">Marital Status:</label>
-          <b-form-group id="contact.maritalStatus">
-            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="single">Single</b-form-radio>
-            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="married">Married</b-form-radio>
-            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="separated">Separated</b-form-radio>
-            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="divorced">Divorced</b-form-radio>
-            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="widow">Widow</b-form-radio>
-            <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="common law">Common Law</b-form-radio>
-          </b-form-group>
-        </b-col>
-      </b-row>
-    </div>
+      <div class="mt-4">
+        <h2>Contact Information</h2>
+        <!-- Contact Info : First row -->
+        <b-row class="my-2">
+          <b-col col md="3">
+            <label for="contactInformation.homePhone">Home Phone:</label>
+            <b-form-input id="contactInformation.homePhone" v-model="contactInformation.homePhone" placeholder="Home Phone" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.work">Work Phone:</label>
+            <b-form-input id="contact.work" v-model="contactInformation.work" placeholder="Work" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.cell">Cell Phone:</label>
+            <b-form-input id="contact.cell" v-model="contactInformation.cell" placeholder="Cell" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.other">Other:</label>
+            <b-form-input id="contact.other" v-model="contactInformation.other" placeholder="Other" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Contact Info : Second row -->
+        <b-row class="my-2">
+          <b-col col md="3">
+            <label for="contact.personalEmail">Personal Email:</label>
+            <b-form-input id="contact.personalEmail" v-model="contactInformation.personalEmail" placeholder="Personal Email" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.otherEmail">Other Email:</label>
+            <b-form-input id="contact.otherEmail" v-model="contactInformation.otherEmail" placeholder="Other Email" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.language">Language:</label>
+            <b-form-select v-model="selected.language" id="contact.language">
+              <b-form-select-option value="">Select Language</b-form-select-option>
+              <b-form-select-option value="spanish">Spanish</b-form-select-option>
+              <b-form-select-option value="english">English</b-form-select-option>
+              <b-form-select-option value="bilingual">Bilingual</b-form-select-option>
+              <b-form-select-option value="other">Other</b-form-select-option>
+            </b-form-select>
+            <b-form-input v-if="selected.language === 'other'" id="contact.language" v-model="contactInformation.language" placeholder="Enter Language" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.ethnicity">Ethnicity:</label>
+            <b-form-select v-model="selected.ethnicity" id="contact.ethnicity">
+              <b-form-select-option value="">Select Ethnicity</b-form-select-option>
+              <b-form-select-option value="hispanic\latino">Hispanic\Latino</b-form-select-option>
+              <b-form-select-option value="african\american">African\American</b-form-select-option>
+              <b-form-select-option value="white\nonhispanic">White\Non-Hispanic</b-form-select-option>
+              <b-form-select-option value="other">Other</b-form-select-option>
+            </b-form-select>
+            <b-form-input v-if="selected.ethnicity === 'other'" id="contact.ethnicity" v-model="contactInformation.ethnicity" placeholder="Enter Ethnicity" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Contact Info : Third row -->
+        <b-row class="my-2">
+          <b-col col md="3" class="mt-2">
+            <label for="contact.maritalStatus">Marital Status:</label>
+            <b-form-group id="contact.maritalStatus">
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="single">Single</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="married">Married</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="separated">Separated</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="divorced">Divorced</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="widow">Widow</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="common law">Common Law</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
 
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
-    <!-- EMPLOYMENT INFORMATION -->
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- EMPLOYMENT INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
-    <div class="mt-4">
-      <h1>Employment Information</h1>
-      <!-- Employment Info : First row -->
-      <b-row>
-        <b-col col md="3" class="mt-2">
-          <b-form-group id="empoloyment.group">
-            <b-form-radio v-model="selected.employment" value="employed">Employed</b-form-radio>
-            <b-form-radio v-model="selected.employment" value="unemployed">Unemployed</b-form-radio>
-            <b-form-radio v-model="selected.employment" value="retired">Retired</b-form-radio>
-            <b-form-radio v-model="selected.employment" value="housewife">Housewife</b-form-radio>
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <!-- Employment Info : Second row -->
-      <b-row v-if="selected.employment === 'employed'">
-        <b-col col md="4">
-          <label for="employment.length">Employment Length:</label>
-          <b-form-input id="employment.length" v-model="employmentInformation.employmentLength" placeholder="Employment Length" trim></b-form-input>
-        </b-col>
-        <b-col col md="4">
-          <label for="employment.employer">Employer:</label>
-          <b-form-input id="employment.employer" v-model="employmentInformation.employer" placeholder="Employer" trim></b-form-input>
-        </b-col>
-        <b-col col md="4">
-          <label for="employment.occupation">Occupation:</label>
-          <b-form-input id="employment.occupation" v-model="employmentInformation.occupation" placeholder="Occupation" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <b-row v-if="selected.employment === 'unemployed'">
-        <b-col col md="4">
-          <label for="employment.unemployedLength">Unemployed Length:</label>
-          <b-form-input id="employment.unemployedLength" v-model="employmentInformation.unemployedLength" placeholder="Unemployed Length" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <b-row v-if="selected.employment === 'retired'">
-        <b-col col md="4">
-          <label for="employment.retirement">Retirement Length:</label>
-          <b-form-input id="employment.retirement" v-model="employmentInformation.retirementLength" placeholder="Retired Length" trim></b-form-input>
-        </b-col>
-      </b-row>
-    </div>
+      <div class="mt-4">
+        <h2>Employment Information</h2>
+        <!-- Employment Info : First row -->
+        <b-row>
+          <b-col col md="3" class="mt-2">
+            <b-form-group id="empoloyment.group">
+              <b-form-radio v-model="selected.employment" value="employed">Employed</b-form-radio>
+              <b-form-radio v-model="selected.employment" value="unemployed">Unemployed</b-form-radio>
+              <b-form-radio v-model="selected.employment" value="retired">Retired</b-form-radio>
+              <b-form-radio v-model="selected.employment" value="housewife">Housewife</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <!-- Employment Info : Second row -->
+        <b-row v-if="selected.employment === 'employed'">
+          <b-col col md="4">
+            <label for="employment.length">Employment Length:</label>
+            <b-form-input id="employment.length" v-model="employmentInformation.employmentLength" placeholder="Employment Length" trim></b-form-input>
+          </b-col>
+          <b-col col md="4">
+            <label for="employment.employer">Employer:</label>
+            <b-form-input id="employment.employer" v-model="employmentInformation.employer" placeholder="Employer" trim></b-form-input>
+          </b-col>
+          <b-col col md="4">
+            <label for="employment.occupation">Occupation:</label>
+            <b-form-input id="employment.occupation" v-model="employmentInformation.occupation" placeholder="Occupation" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row v-if="selected.employment === 'unemployed'">
+          <b-col col md="4">
+            <label for="employment.unemployedLength">Unemployed Length:</label>
+            <b-form-input id="employment.unemployedLength" v-model="employmentInformation.unemployedLength" placeholder="Unemployed Length" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row v-if="selected.employment === 'retired'">
+          <b-col col md="4">
+            <label for="employment.retirement">Retirement Length:</label>
+            <b-form-input id="employment.retirement" v-model="employmentInformation.retirementLength" placeholder="Retired Length" trim></b-form-input>
+          </b-col>
+        </b-row>
+      </div>
 
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
-    <!-- EDUCATION INFORMATION -->
-    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- EDUCATION INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
-    <div class="mt-4">
-      <h1>Education Information</h1>
-      <!-- Education Info : First row -->
-      <b-row>
-        <b-col col md="4">
-          <label for="education.attendedSchool">Did you attend school?:</label>
-          <b-form-group id="education.attendedSchool">
-            <b-form-radio v-model="educationInformation.attendedSchool" value="true">Yes</b-form-radio>
-            <b-form-radio v-model="educationInformation.attendedSchool" value="false">No</b-form-radio>
-          </b-form-group>
-        </b-col>
-      </b-row>
-      <!-- Education Info : Second row -->
-      <b-row v-if="educationInformation.attendedSchool === 'true'">
-        <b-col col md="6">
-          <label for="education.school">School:</label>
-          <b-form-input id="education.school" v-model="educationInformation.school" placeholder="School" trim></b-form-input>
-        </b-col>
-        <b-col col md="6">
-          <label for="education.lastGrade">Last Grade:</label>
-          <b-form-input id="education.lastGrade" v-model="educationInformation.lastGrade" placeholder="Last Grade" trim></b-form-input>
-        </b-col>
-      </b-row>
-      <!-- Education Info : Third row -->
-      <b-row v-if="educationInformation.attendedSchool === 'true'" class="my-2">
-        <b-col col md="4">
-          <b-form-checkbox v-model="educationInformation.graduated" value="true">Graduated?</b-form-checkbox>
-        </b-col>
-        <b-col v-if="educationInformation.graduated === 'true'" col md="8">
-          <b-form-checkbox v-model="selected.schoolsAttended" value="elementary">Elementary (0-8)</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="highschoolOrGED">High School/GED</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="college">Attend College</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="technicalSchool">Technical School</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="associateDegree">Associate Degree</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="bachelorDegree">Bachelor Degree</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="mastersDegree">Masters Degree</b-form-checkbox>
-          <b-form-checkbox v-model="selected.schoolsAttended" value="phd">PHD</b-form-checkbox>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col col md="10">
-          <label for="education.certification">Certification:</label>
-          <b-form-input id="education.certification" v-model="educationInformation.certification" placeholder="Certification" trim></b-form-input>
-        </b-col>
-      </b-row>
-    </div>
+      <div class="mt-4">
+        <h2>Education Information</h2>
+        <!-- Education Info : First row -->
+        <b-row>
+          <b-col col md="4">
+            <label for="education.attendedSchool">Did you attend school?:</label>
+            <b-form-group id="education.attendedSchool">
+              <b-form-radio v-model="educationInformation.attendedSchool" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="educationInformation.attendedSchool" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <!-- Education Info : Second row -->
+        <b-row v-if="educationInformation.attendedSchool === 'true'">
+          <b-col col md="6">
+            <label for="education.school">School:</label>
+            <b-form-input id="education.school" v-model="educationInformation.school" placeholder="School" trim></b-form-input>
+          </b-col>
+          <b-col col md="6">
+            <label for="education.lastGrade">Last Grade:</label>
+            <b-form-input id="education.lastGrade" v-model="educationInformation.lastGrade" placeholder="Last Grade" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Education Info : Third row -->
+        <b-row v-if="educationInformation.attendedSchool === 'true'" class="my-2">
+          <b-col col md="4">
+            <b-form-checkbox v-model="educationInformation.graduated" value="true">Graduated?</b-form-checkbox>
+          </b-col>
+          <b-col v-if="educationInformation.graduated === 'true'" col md="8">
+            <b-form-checkbox v-model="selected.schoolsAttended" value="elementary">Elementary (0-8)</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="highschoolOrGED">High School/GED</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="college">Attend College</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="technicalSchool">Technical School</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="associateDegree">Associate Degree</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="bachelorDegree">Bachelor Degree</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="mastersDegree">Masters Degree</b-form-checkbox>
+            <b-form-checkbox v-model="selected.schoolsAttended" value="phd">PHD</b-form-checkbox>
+          </b-col>
+        </b-row>
+        <!-- Education Info : Fourth row -->
+        <b-row>
+          <b-col col md="10">
+            <label for="education.certification">Certification:</label>
+            <b-form-input id="education.certification" v-model="educationInformation.certification" placeholder="Certification" trim></b-form-input>
+          </b-col>
+        </b-row>
+      </div>
 
-    <!-- END OF FORM -->
-  </b-container>
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- INCOME INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+      <div class="mt-4">
+        <h2>Income Information</h2>
+        <!-- Income Info : First row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="2">
+            <label for="income.monthly">Monthly Income:</label>
+            <b-form-input id="income.monthly" v-model="incomeInformation.monthlyIncome" placeholder="Monthly Income" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.other">Other Income:</label>
+            <b-form-input id="income.other" v-model="incomeInformation.otherIncome" placeholder="Other Income" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.spousal">Spousal Support:</label>
+            <b-form-input id="income.spousal" v-model="incomeInformation.spousalSupport" placeholder="Spousal Support" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.workerComp">Worker Comp:</label>
+            <b-form-input id="income.workerComp" v-model="incomeInformation.workerComp" placeholder="Worker Comp" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.childSupport">Child Support:</label>
+            <b-form-input id="income.childSupport" v-model="incomeInformation.childSupport" placeholder="Child Support" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Income Info : Second row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="2">
+            <label for="income.tanf">TANF:</label>
+            <b-form-input id="income.tanf" v-model="incomeInformation.tanf" placeholder="TANF" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.ssi">SSI:</label>
+            <b-form-input id="income.ssi" v-model="incomeInformation.ssi" placeholder="SSI" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.unemployment">Unemployment:</label>
+            <b-form-input id="income.unemployment" v-model="incomeInformation.unemployment" placeholder="Unemployment Income" trim></b-form-input>
+          </b-col>
+          <b-col col md="2">
+            <label for="income.socialSecurity">Social Security:</label>
+            <b-form-input id="income.socialSecurity" v-model="incomeInformation.socialSecurity" placeholder="Social Security" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="justify-content-left my-2">
+          <b-col col md="3">
+            <b-form-checkbox v-model="incomeInformation.headHousehold" value="true">Are you head of household?</b-form-checkbox>
+          </b-col>
+          <b-col col md="3">
+            <label for="income.needs">Do you need:</label>
+            <b-form-group id="income.needs">
+              <b-form-checkbox v-model="selected.incomeNeeds" value="clothing">Clothing</b-form-checkbox>
+              <b-form-checkbox v-model="selected.incomeNeeds" value="personal care items">Personal care items</b-form-checkbox>
+              <b-form-checkbox v-model="selected.incomeNeeds" value="transportation assistance">Transportation Assistance</b-form-checkbox>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
+
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- HEALTH INSURANCE INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+      <div class="mt-4">
+        <h2>Health Insurance Information</h2>
+        <!-- Health Info : First row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="4">
+            <b-form-checkbox v-model="insuranceInformation.healthInsurance" value="true">Do you have health insurance?</b-form-checkbox>
+          </b-col>
+          <b-col v-if="insuranceInformation.healthInsurance" col md="8" class="mt-2">
+            <label for="insurance.provider">Select Insurance Provider:</label>
+            <b-form-group id="insurance.provider">
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="private">Private</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="medicaid">Medicaid</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="medicare">Medicare</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="chip">CHIP</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="goldcard">GoldCard</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="wic">WIC</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <!-- Health Info : Second row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="4">
+            <label for="insurance.foodstamps">Do you receive food stamps?:</label>
+            <b-form-group id="insurance.foodstamps">
+              <b-form-radio v-model="insuranceInformation.foodStamps" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.foodStamps" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+          <b-col v-if="insuranceInformation.foodStamps === 'true'" col md="8">
+            <label for="insurance.howMuch">How Much?:</label>
+            <b-form-input id="income.howMuch" v-model="incomeInformation.howMuch" placeholder="Food Stamps How Much" trim></b-form-input>
+          </b-col>
+          <b-col v-if="insuranceInformation.foodStamps === 'false'" col md="8">
+            <label for="insurance.whyNot">Why Not?:</label>
+            <b-form-group id="insurance.whyNot">
+              <b-form-radio v-model="insuranceInformation.whyNot" value="do not qualify">Do not qualify</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.whyNot" value="have not applied">Have not applied</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.whyNot" value="application in process">Application in process</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.whyNot" value="need help applying">Need help applying</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
+
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- SUBSTANCE USE -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+      <div class="mt-4">
+        <h2>Substance Use</h2>
+        <!-- Health Info : First row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="4">
+            <label for="substance.use">Do you use drugs or alcohol?:</label>
+            <b-form-group id="substance.use">
+              <b-form-radio v-model="insuranceInformation.use" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.use" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
+
+      <!-- END OF FORM -->
+    </b-container>
+  </div>
 </template>
 
 <script>
@@ -333,7 +465,8 @@ export default {
         employment: "",
         attendedSchool: "",
         graduated: "",
-        schoolsAttended: []
+        schoolsAttended: [],
+        incomeNeeds: [],
       },
       // this data can be submitted to backend
       caseNumber: "",
@@ -392,9 +525,41 @@ export default {
         graduated: "",
         certification: "",
       },
+      incomeInformation: {
+        headHousehold: false, // default to false since we only use a checkbox
+        monthlyIncome: "",
+        otherIncome: "",
+        spousalSupport: "",
+        workerComp: "",
+        childSupport: "",
+        tanf: "",
+        ssi: "",
+        unemployment: "",
+        socialSecurity: "",
+        doYouNeed: "",
+      },
+      insuranceInformation: {
+        healthInsurance: false, // default to false since we only use a checkbox
+        insuranceProvider: "",
+        foodStamps: false,
+        howMuch: "",
+        whyNot: "",
+      },
+      substanceInformation: {
+        use: false,
+        whatHowMuch: '',
+        treatment: '',
+        notes: '',
+        treatmentHistory: '',
+      }
     };
   },
 };
 </script>
 
-<style></style>
+<style>
+.form-container {
+  height: 75vh;
+  overflow: auto;
+}
+</style>
