@@ -4,31 +4,23 @@
     <b-container fluid>
       <b-row class="justify-content-md-center">
         <b-col col md="5">
-          <div class="my-2">
-            <label for="caseNumber">Case Number:</label>
-            <b-form-input id="caseNumber" v-model="caseNumber" placeholder="Enter Case #" trim></b-form-input>
-          </div>
+          <label for="caseNumber">Case Number:</label>
+          <b-form-input id="caseNumber" v-model="caseNumber" placeholder="Enter Case #" trim></b-form-input>
         </b-col>
         <b-col col md="5">
-          <div class="my-2">
-            <label for="clientNumber">Client Number:</label>
-            <b-form-input id="clientNumber" v-model="clientNumber" placeholder="Enter Client #" trim></b-form-input>
-          </div>
+          <label for="clientNumber">Client Number:</label>
+          <b-form-input id="clientNumber" v-model="clientNumber" placeholder="Enter Client #" trim></b-form-input>
         </b-col>
       </b-row>
 
       <b-row class="justify-content-center">
         <b-col col md="5">
-          <div class="my-2">
-            <label for="startDatePicker">Start Date:</label>
-            <input type="Date" class="form-control" v-model="startDate" />
-          </div>
+          <label for="startDatePicker">Start Date:</label>
+          <input type="Date" class="form-control" v-model="startDate" />
         </b-col>
         <b-col col md="5">
-          <div class="my-2">
-            <label for="closeDatePicker">Close Date:</label>
-            <input type="Date" class="form-control" v-model="closeDate" />
-          </div>
+          <label for="closeDatePicker">Close Date:</label>
+          <input type="Date" class="form-control" v-model="closeDate" />
         </b-col>
       </b-row>
 
@@ -437,14 +429,223 @@
 
       <div class="mt-4">
         <h2>Substance Use</h2>
-        <!-- Health Info : First row -->
+        <!-- Substance Info : First row -->
         <b-row class="justify-content-left my-2">
           <b-col col md="4">
             <label for="substance.use">Do you use drugs or alcohol?:</label>
             <b-form-group id="substance.use">
-              <b-form-radio v-model="insuranceInformation.use" value="true">Yes</b-form-radio>
-              <b-form-radio v-model="insuranceInformation.use" value="false">No</b-form-radio>
+              <b-form-radio v-model="substanceInformation.use" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="substanceInformation.use" value="false">No</b-form-radio>
             </b-form-group>
+          </b-col>
+          <b-col v-if="substanceInformation.use === 'true'" col md="8">
+            <label for="substance.whatHowMuch">How Much?:</label>
+            <b-form-input id="substance.whatHowMuch" v-model="substanceInformation.whatHowMuch" placeholder="What? How Much?" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Substance Info : Second row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="4">
+            <label for="substance.treatment">Do You Want Treatment?:</label>
+            <b-form-group id="substance.treatment">
+              <b-form-radio v-model="substanceInformation.treatment" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="substanceInformation.treatment" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+          <b-col v-if="substanceInformation.treatment === 'true'" col md="8">
+            <label for="substance.notes">Notes:</label>
+            <b-form-input id="substance.notes" v-model="substanceInformation.notes" placeholder="Notes" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Substance Info : Third row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="12">
+            <label for="substance.treatment">Treatment History:</label>
+            <b-form-textarea id="substance.treatment"></b-form-textarea>
+          </b-col>
+        </b-row>
+      </div>
+
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+      <!-- LEGAL INFORMATION -->
+      <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+      <div class="mt-4">
+        <h2>Legal Information</h2>
+        <!-- Legal Info : First row -->
+        <b-row class="justify-content-left">
+          <b-col col md="3">
+            <label for="legal.legalCaseNumber">Legal Case #:</label>
+            <b-form-input id="legal.legalCaseNumber" v-model="legalInformation.legalCaseNumber" placeholder="Legal Case #" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.fileDate">File Date:</label>
+            <input type="Date" class="form-control" v-model="legalInformation.fileDate" />
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.priorAttorneyName">Prior Attorney Name:</label>
+            <b-form-input id="legal.priorAttorneyName" v-model="legalInformation.priorAttorneyName" placeholder="Prior Attorney Name" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.attorneyCaseload">Prior Attorney Caseload:</label>
+            <b-form-input id="legal.attorneyCaseload" v-model="legalInformation.priorAttorneyCaseload" placeholder="Prior Attorney Caseload" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Second row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="3">
+            <label for="legal.mental">Mental Competency?:</label>
+            <b-form-group id="legal.mental">
+              <b-form-radio v-model="legalInformation.mentalCompetency" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="legalInformation.mentalCompetency" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+          <b-col col md="3">
+            <label for="income.ssi">SSI:</label>
+            <b-form-input id="income.ssi" v-model="incomeInformation.ssi" placeholder="SSI" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="income.unemployment">Unemployment:</label>
+            <b-form-input id="income.unemployment" v-model="incomeInformation.unemployment" placeholder="Unemployment Income" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="income.socialSecurity">Social Security:</label>
+            <b-form-input id="income.socialSecurity" v-model="incomeInformation.socialSecurity" placeholder="Social Security" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Third row -->
+        <b-row class="justify-content-left">
+          <b-col col md="3">
+            <label for="legal.court">Current Court:</label>
+            <b-form-input id="legal.court" v-model="legalInformation.currentCourt" placeholder="Current Court" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.courtAddress">Court Address:</label>
+            <b-form-input id="legal.courtAddress" v-model="legalInformation.courtAddress" placeholder="Court Address" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.judgeName">Judge Name:</label>
+            <b-form-input id="legal.judgeName" v-model="legalInformation.judgeName" placeholder="Judge Name" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.courtType">Court Type:</label>
+            <b-form-input id="legal.courtType" v-model="legalInformation.courtType" placeholder="Court Type" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Fourth row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="3">
+            <label for="legal.caseCompletionDate">Case Completion Date:</label>
+            <input id="legal.caseCompletionDate" type="Date" class="form-control" v-model="legalInformation.caseCompletionDate" />
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.defendantStatus">Defendant Status:</label>
+            <b-form-input id="legal.defendantStatus" v-model="legalInformation.defendantStatus" placeholder="Defendant Status" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="income.unemployment">Unemployment:</label>
+            <b-form-input id="income.unemployment" v-model="incomeInformation.unemployment" placeholder="Unemployment Income" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="legal.settlingDate">Next\Last Settling Date:</label>
+            <input id="legal.settlingDate" type="Date" class="form-control" v-model="legalInformation.settlingDate" />
+          </b-col>
+        </b-row>
+        <!-- CHARGES -->
+        <!-- Legal Info : Fifth row -->
+        <b-row class="justify-content-left">
+          <h4 class="my-2">Charges</h4>
+          <b-col col md="3">
+            <label for="charge.0.charge">Charge:</label>
+            <b-form-input id="charge.0.charge" v-model="legalInformation.charges[0].charge" placeholder="Charge" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.0.degree">Degree:</label>
+            <b-form-input id="charge.0.degree" v-model="legalInformation.charges[0].degree" placeholder="Degree" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.0.punishmentRange">Punishment Range:</label>
+            <b-form-input id="charge.0.punishmentRange" v-model="legalInformation.charges[0].punishmentRange" placeholder="Punishment Range" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.0.disposition">Disposition:</label>
+            <b-form-input id="charge.0.disposition" v-model="legalInformation.charges[0].charge" placeholder="Disposition" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Sixth row -->
+        <b-row class="justify-content-left">
+          <b-col col md="3">
+            <label for="charge.1.charge">Charge:</label>
+            <b-form-input id="charge.1.charge" v-model="legalInformation.charges[1].charge" placeholder="Charge" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.1.degree">Degree:</label>
+            <b-form-input id="charge.1.degree" v-model="legalInformation.charges[1].degree" placeholder="Degree" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.1.punishmentRange">Punishment Range:</label>
+            <b-form-input id="charge.1.punishmentRange" v-model="legalInformation.charges[1].punishmentRange" placeholder="Punishment Range" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.1.disposition">Disposition:</label>
+            <b-form-input id="charge.1.disposition" v-model="legalInformation.charges[1].charge" placeholder="Disposition" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Seventh row -->
+        <b-row class="justify-content-left">
+          <b-col col md="3">
+            <label for="charge.2.charge">Charge:</label>
+            <b-form-input id="charge.2.charge" v-model="legalInformation.charges[2].charge" placeholder="Charge" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.2.degree">Degree:</label>
+            <b-form-input id="charge.2.degree" v-model="legalInformation.charges[2].degree" placeholder="Degree" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.2.punishmentRange">Punishment Range:</label>
+            <b-form-input id="charge.2.punishmentRange" v-model="legalInformation.charges[2].punishmentRange" placeholder="Punishment Range" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.2.disposition">Disposition:</label>
+            <b-form-input id="charge.2.disposition" v-model="legalInformation.charges[2].charge" placeholder="Disposition" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Eight row -->
+        <b-row class="justify-content-left">
+          <b-col col md="3">
+            <label for="charge.3.charge">Charge:</label>
+            <b-form-input id="charge.3.charge" v-model="legalInformation.charges[3].charge" placeholder="Charge" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.3.degree">Degree:</label>
+            <b-form-input id="charge.3.degree" v-model="legalInformation.charges[3].degree" placeholder="Degree" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.3.punishmentRange">Punishment Range:</label>
+            <b-form-input id="charge.3.punishmentRange" v-model="legalInformation.charges[3].punishmentRange" placeholder="Punishment Range" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.3.disposition">Disposition:</label>
+            <b-form-input id="charge.3.disposition" v-model="legalInformation.charges[3].charge" placeholder="Disposition" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Legal Info : Ninth row -->
+        <b-row class="justify-content-left">
+          <b-col col md="3">
+            <label for="charge.4.charge">Charge:</label>
+            <b-form-input id="charge.4.charge" v-model="legalInformation.charges[4].charge" placeholder="Charge" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.4.degree">Degree:</label>
+            <b-form-input id="charge.4.degree" v-model="legalInformation.charges[4].degree" placeholder="Degree" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.4.punishmentRange">Punishment Range:</label>
+            <b-form-input id="charge.4.punishmentRange" v-model="legalInformation.charges[4].punishmentRange" placeholder="Punishment Range" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="charge.4.disposition">Disposition:</label>
+            <b-form-input id="charge.4.disposition" v-model="legalInformation.charges[4].charge" placeholder="Disposition" trim></b-form-input>
           </b-col>
         </b-row>
       </div>
@@ -547,11 +748,58 @@ export default {
       },
       substanceInformation: {
         use: false,
-        whatHowMuch: '',
-        treatment: '',
-        notes: '',
-        treatmentHistory: '',
-      }
+        whatHowMuch: "",
+        treatment: "",
+        notes: "",
+        treatmentHistory: "",
+      },
+      legalInformation: {
+        legalCaseNumber: "",
+        mentalCompetency: "",
+        fileDate: "",
+        priorAttorneyName: "",
+        priorAttorneyCaseload: "",
+        currentCourt: "",
+        courtAddress: "",
+        judgeName: "",
+        courtType: "",
+        caseCompletionDate: "",
+        defendantStatus: "",
+        bondAmount: "",
+        settlingDate: "",
+        charges: [
+          {
+            charge: "",
+            degree: "",
+            punishmentRange: "",
+            disposition: "",
+          },
+          {
+            charge: "",
+            degree: "",
+            punishmentRange: "",
+            disposition: "",
+          },
+          {
+            charge: "",
+            degree: "",
+            punishmentRange: "",
+            disposition: "",
+          },
+          {
+            charge: "",
+            degree: "",
+            punishmentRange: "",
+            disposition: "",
+          },
+          {
+            charge: "",
+            degree: "",
+            punishmentRange: "",
+            disposition: "",
+          },
+        ],
+      },
     };
   },
 };
@@ -559,7 +807,7 @@ export default {
 
 <style>
 .form-container {
-  height: 75vh;
+  height: 60vh;
   overflow: auto;
 }
 </style>
