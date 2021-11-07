@@ -128,7 +128,7 @@
         </b-col>
       </b-row>
       <!-- Residence Info : Third row -->
-      <b-row class="justify-content-left my-2"> 
+      <b-row class="justify-content-left my-2">
         <b-col col md="2">
           <b-form-checkbox v-model="residenceInformation.inCustody" value="true">In Custody?</b-form-checkbox>
           <b-form-checkbox v-model="residenceInformation.adelphoi" value="true">Adelphoi?</b-form-checkbox>
@@ -227,6 +227,7 @@
 
     <div class="mt-4">
       <h1>Employment Information</h1>
+      <!-- Employment Info : First row -->
       <b-row>
         <b-col col md="3" class="mt-2">
           <b-form-group id="empoloyment.group">
@@ -237,22 +238,82 @@
           </b-form-group>
         </b-col>
       </b-row>
+      <!-- Employment Info : Second row -->
+      <b-row v-if="selected.employment === 'employed'">
+        <b-col col md="4">
+          <label for="employment.length">Employment Length:</label>
+          <b-form-input id="employment.length" v-model="employmentInformation.employmentLength" placeholder="Employment Length" trim></b-form-input>
+        </b-col>
+        <b-col col md="4">
+          <label for="employment.employer">Employer:</label>
+          <b-form-input id="employment.employer" v-model="employmentInformation.employer" placeholder="Employer" trim></b-form-input>
+        </b-col>
+        <b-col col md="4">
+          <label for="employment.occupation">Occupation:</label>
+          <b-form-input id="employment.occupation" v-model="employmentInformation.occupation" placeholder="Occupation" trim></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row v-if="selected.employment === 'unemployed'">
+        <b-col col md="4">
+          <label for="employment.unemployedLength">Unemployed Length:</label>
+          <b-form-input id="employment.unemployedLength" v-model="employmentInformation.unemployedLength" placeholder="Unemployed Length" trim></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row v-if="selected.employment === 'retired'">
+        <b-col col md="4">
+          <label for="employment.retirement">Retirement Length:</label>
+          <b-form-input id="employment.retirement" v-model="employmentInformation.retirementLength" placeholder="Retired Length" trim></b-form-input>
+        </b-col>
+      </b-row>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+    <!-- EDUCATION INFORMATION -->
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+    <div class="mt-4">
+      <h1>Education Information</h1>
+      <!-- Education Info : First row -->
       <b-row>
         <b-col col md="4">
-          <label v-if="selected.employment === 'employed'" for="employment.length">Employment Length:</label>
-          <b-form-input v-if="selected.employment === 'employed'" id="employment.length" v-model="employmentInformation.employmentLength" placeholder="Employment Length" trim></b-form-input>
-        </b-col> 
+          <label for="education.attendedSchool">Did you attend school?:</label>
+          <b-form-group id="education.attendedSchool">
+            <b-form-radio v-model="educationInformation.attendedSchool" value="true">Yes</b-form-radio>
+            <b-form-radio v-model="educationInformation.attendedSchool" value="false">No</b-form-radio>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <!-- Education Info : Second row -->
+      <b-row v-if="educationInformation.attendedSchool === 'true'">
+        <b-col col md="6">
+          <label for="education.school">School:</label>
+          <b-form-input id="education.school" v-model="educationInformation.school" placeholder="School" trim></b-form-input>
+        </b-col>
+        <b-col col md="6">
+          <label for="education.lastGrade">Last Grade:</label>
+          <b-form-input id="education.lastGrade" v-model="educationInformation.lastGrade" placeholder="Last Grade" trim></b-form-input>
+        </b-col>
+      </b-row>
+      <!-- Education Info : Third row -->
+      <b-row v-if="educationInformation.attendedSchool === 'true'" class="my-2">
         <b-col col md="4">
-          <label v-if="selected.employment === 'employed'" for="employment.employer">Employer:</label>
-          <b-form-input v-if="selected.employment === 'employed'" id="employment.employer" v-model="employmentInformation.employer" placeholder="Employer" trim></b-form-input>
-        </b-col> 
-        <b-col col md="4">
-          <label v-if="selected.employment === 'employed'" for="employment.occupation">Occupation:</label>
-          <b-form-input v-if="selected.employment === 'employed'" id="employment.occupation" v-model="employmentInformation.occupation" placeholder="Occupation" trim></b-form-input>
-        </b-col> 
-        <b-col col md="4">
-          <label v-if="selected.employment === 'unemployed'" for="employment.unemployedLength">Unemployed Length:</label>
-          <b-form-input v-if="selected.employment === 'unemployed'" id="employment.unemployedLength" v-model="employmentInformation.unemployedLength" placeholder="Unemployed Length" trim></b-form-input>
+          <b-form-checkbox v-model="educationInformation.graduated" value="true">Graduated?</b-form-checkbox>
+        </b-col>
+        <b-col v-if="educationInformation.graduated === 'true'" col md="8">
+          <b-form-checkbox v-model="selected.schoolsAttended" value="elementary">Elementary (0-8)</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="highschoolOrGED">High School/GED</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="college">Attend College</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="technicalSchool">Technical School</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="associateDegree">Associate Degree</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="bachelorDegree">Bachelor Degree</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="mastersDegree">Masters Degree</b-form-checkbox>
+          <b-form-checkbox v-model="selected.schoolsAttended" value="phd">PHD</b-form-checkbox>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col col md="10">
+          <label for="education.certification">Certification:</label>
+          <b-form-input id="education.certification" v-model="educationInformation.certification" placeholder="Certification" trim></b-form-input>
         </b-col>
       </b-row>
     </div>
@@ -270,6 +331,9 @@ export default {
         language: "",
         ethnicity: "",
         employment: "",
+        attendedSchool: "",
+        graduated: "",
+        schoolsAttended: []
       },
       // this data can be submitted to backend
       caseNumber: "",
@@ -311,7 +375,7 @@ export default {
         otherEmail: "",
         maritalStatus: "",
         language: "",
-        ethnicity: ""
+        ethnicity: "",
       },
       employmentInformation: {
         employmentLength: "",
@@ -320,7 +384,14 @@ export default {
         unemploymentLength: "",
         retirementLength: "",
         housewife: false,
-      }
+      },
+      educationInformation: {
+        attendedSchool: false, // default to false since we only use a checkbox
+        school: "",
+        lastGrade: "",
+        graduated: "",
+        certification: "",
+      },
     };
   },
 };
