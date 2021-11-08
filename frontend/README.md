@@ -1,5 +1,5 @@
-# bread-of-life
-1. cd frontend/bread-of-life
+# Restoring Justice
+1. cd frontend/restoring-justice
 
 ## Project setup
 
