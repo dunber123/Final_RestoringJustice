@@ -68,6 +68,9 @@
             <b-col col md="6">
               <div class="form-floating">
               <b-form-input id="general.ssn" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
+               <b-form-text id="password-help-block">
+                        Your Social Security number must be 10 digits long. Do not include dashes "-".
+                    </b-form-text>
               <label for="general.ssn">SSN:</label>
               </div>
             </b-col>
@@ -185,14 +188,23 @@
             <b-col col md="3">
               <label for="contactInformation.homePhone">Home Phone:</label>
               <b-form-input id="contactInformation.homePhone" v-model="contactInformation.homePhone" placeholder="Home Phone" trim></b-form-input>
+               <b-form-text id="password-help-block">
+                        Your phone number must be 10 digits long. Do not include dashes "-".
+                    </b-form-text>
             </b-col>
             <b-col col md="3">
               <label for="contact.work">Work Phone:</label>
               <b-form-input id="contact.work" v-model="contactInformation.work" placeholder="Work" trim></b-form-input>
+               <b-form-text id="password-help-block">
+                        Your phone number must be 10 digits long. Do not include dashes "-".
+                    </b-form-text>
             </b-col>
             <b-col col md="3">
               <label for="contact.cell">Cell Phone:</label>
               <b-form-input id="contact.cell" v-model="contactInformation.cell" placeholder="Cell" trim></b-form-input>
+               <b-form-text id="password-help-block">
+                        Your phone number must be 10 digits long. Do not include dashes "-".
+                    </b-form-text>
             </b-col>
             <b-col col md="3">
               <label for="contact.other">Other:</label>
