@@ -24,9 +24,9 @@ var routes = [
     component: () => import('../components/CreateIndividual')
   },
   {
-    path: '/viewevent',
-    name: 'viewevent',
-    component: () => import('../components/ListEvents')
+    path: '/ListIndividuals',
+    name: 'ListIndividuals',
+    component: () => import('../components/ListIndividuals')
   },
   {
     path: '/viewindividual',

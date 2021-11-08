@@ -48,14 +48,12 @@
             </b-col>
             <b-col col md="4">
               <div class="form-floating">
-              
               <b-form-input id="general.lastName" v-model="generalInformation.lastName" placeholder="Last Name:" trim></b-form-input>
               <label for="general.lastName">Last Name:</label>
               </div>
             </b-col>
             <b-col col md="4">
               <div class="form-floating">
-              
               <b-form-input id="general.middleName" v-model="generalInformation.middleName" placeholder="Middle Name:" trim></b-form-input>
               <label for="general.middleName">Middle Name:</label>
               </div>
@@ -69,7 +67,6 @@
             </b-col>
             <b-col col md="6">
               <div class="form-floating">
-           
               <b-form-input id="general.ssn" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
               <label for="general.ssn">SSN:</label>
               </div>
@@ -79,7 +76,6 @@
           <b-row class="justify-content-center my-2">
             <b-col col md="6">
               <div class="form-floating">
-             
               <b-form-input id="general.identificationNumber" v-model="generalInformation.identificationNumber" placeholder="ID or TX DL" trim></b-form-input>
               <label for="general.identificationNumber">ID/TX Drivers License:</label>
               </div>
@@ -110,31 +106,43 @@
           <!-- Residence Info : First row -->
           <b-row class="justify-content-center my-2">
             <b-col col md="6">
-              <label for="residence.address">Street Address:</label>
+              <div class="form-floating">
               <b-form-input id="residence.address" v-model="residenceInformation.streetAddress" placeholder="Address" trim></b-form-input>
+              <label for="residence.address">Street Address:</label>
+              </div>
             </b-col>
             <b-col col md="3">
-              <label for="residence.city">City:</label>
+              <div class="form-floating">
               <b-form-input id="residence.city" v-model="residenceInformation.city" placeholder="City" trim></b-form-input>
+              <label for="residence.city">City:</label>
+              </div>
             </b-col>
             <b-col col md="3">
-              <label for="residence.state">State:</label>
+              <div class="form-floating">
               <b-form-input id="residence.state" v-model="residenceInformation.state" placeholder="State" trim></b-form-input>
+              <label for="residence.state">State:</label>
+              </div>
             </b-col>
           </b-row>
           <!-- Residence Info : Second row -->
           <b-row class="justify-content-center my-2">
             <b-col col md="3">
-              <label for="residence.county">County:</label>
+              <div class="form-floating">
               <b-form-input id="residence.county" v-model="residenceInformation.county" placeholder="County" trim></b-form-input>
+              <label for="residence.county">County:</label>
+              </div>
             </b-col>
             <b-col col md="3">
-              <label for="residence.heightWeight">Height\Weight:</label>
+              <div class="form-floating">
               <b-form-input id="residence.heightWeight" v-model="residenceInformation.heightWeight" placeholder="6 feet 9 inches 190lbs" trim></b-form-input>
+              <label for="residence.heightWeight">Height\Weight:</label>
+              </div>
             </b-col>
             <b-col col md="3">
-              <label for="residence.totalRent">Total Rent:</label>
+              <div class="form-floating">
               <b-form-input id="residence.totalRent" v-model="residenceInformation.totalRent" placeholder="Rent" trim></b-form-input>
+              <label for="residence.totalRent">Total Rent:</label>
+              </div>
             </b-col>
             <b-col col md="3">
               <b-form-checkbox v-model="residenceInformation.utilitiesIncluded" value="true">Utilties Included?</b-form-checkbox>
@@ -152,12 +160,16 @@
           <!-- Residence Info : Fourth row -->
           <b-row>
             <b-col v-if="residenceInformation.inCustody" col md="10">
-              <label for="residence.inCustodyLocation">In Custody at Location:</label>
+              <div class="form-floating">
               <b-form-input id="residence.inCustodyLocation" v-model="residenceInformation.inCustodyLocation" placeholder="In Custody Location" trim></b-form-input>
+              <label for="residence.inCustodyLocation">In Custody at Location:</label>
+              </div>
             </b-col>
             <b-col v-if="residenceInformation.adelphoi" col md="10">
-              <label for="residence.adelphoiName">Adelphoi Name:</label>
+              <div class="form-floating"> 
               <b-form-input id="residence.adelphoiName" v-model="residenceInformation.adelphoiName" placeholder="Adelphoi Name" trim></b-form-input>
+              <label for="residence.adelphoiName">Adelphoi Name:</label>
+              </div>
             </b-col>
           </b-row>
         </div>

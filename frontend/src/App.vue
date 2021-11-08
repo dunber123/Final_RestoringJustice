@@ -8,17 +8,11 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/intake">Intake Form</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/viewevent">View All Individuals</router-link> <!-- How hard is a search box by name function? -->
+         <li class="nav-item">
+            <router-link class="nav-link" to="/ListIndividuals">View All Individuals</router-link> <!-- Add search bar or sort bar? -->
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/createindividual">View Single Individual</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/viewevent">View Events</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/viewindividual">View Individuals</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/summarybyevent">Individuals Per Event Type</router-link>
