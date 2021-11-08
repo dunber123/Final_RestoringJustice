@@ -373,9 +373,9 @@
             <b-col col md="3">
               <label for="income.needs">Do you need:</label>
               <b-form-group id="income.needs">
-                <b-form-checkbox v-model="selected.incomeNeeds" value="clothing">Clothing</b-form-checkbox>
-                <b-form-checkbox v-model="selected.incomeNeeds" value="personal care items">Personal care items</b-form-checkbox>
-                <b-form-checkbox v-model="selected.incomeNeeds" value="transportation assistance">Transportation Assistance</b-form-checkbox>
+                <b-form-checkbox v-model="incomeInformation.doYouNeed" value="clothing">Clothing</b-form-checkbox>
+                <b-form-checkbox v-model="incomeInformation.doYouNeed" value="personal care items">Personal care items</b-form-checkbox>
+                <b-form-checkbox v-model="incomeInformation.doYouNeed" value="transportation assistance">Transportation Assistance</b-form-checkbox>
               </b-form-group>
             </b-col>
           </b-row>
