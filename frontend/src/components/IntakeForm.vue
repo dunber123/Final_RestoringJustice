@@ -191,7 +191,7 @@
             <b-form-select v-model="selected.ethnicity" id="contact.ethnicity">
               <b-form-select-option value="">Select Ethnicity</b-form-select-option>
               <b-form-select-option value="hispanic\latino">Hispanic\Latino</b-form-select-option>
-              <b-form-select-option value="african\american">African\American</b-form-select-option>
+              <b-form-select-option value="african\american">African American</b-form-select-option>
               <b-form-select-option value="white\nonhispanic">White\Non-Hispanic</b-form-select-option>
               <b-form-select-option value="other">Other</b-form-select-option>
             </b-form-select>
