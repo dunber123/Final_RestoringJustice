@@ -507,18 +507,6 @@
                 <b-form-radio v-model="legalInformation.mentalCompetency" value="false">No</b-form-radio>
               </b-form-group>
             </b-col>
-            <b-col col md="3">
-              <label for="income.ssi">SSI:</label>
-              <b-form-input id="income.ssi" v-model="incomeInformation.ssi" placeholder="SSI" trim></b-form-input>
-            </b-col>
-            <b-col col md="3">
-              <label for="income.unemployment">Unemployment:</label>
-              <b-form-input id="income.unemployment" v-model="incomeInformation.unemployment" placeholder="Unemployment Income" trim></b-form-input>
-            </b-col>
-            <b-col col md="3">
-              <label for="income.socialSecurity">Social Security:</label>
-              <b-form-input id="income.socialSecurity" v-model="incomeInformation.socialSecurity" placeholder="Social Security" trim></b-form-input>
-            </b-col>
           </b-row>
           <!-- Legal Info : Third row -->
           <b-row class="justify-content-left">
@@ -541,19 +529,15 @@
           </b-row>
           <!-- Legal Info : Fourth row -->
           <b-row class="justify-content-left my-2">
-            <b-col col md="3">
+            <b-col col md="4">
               <label for="legal.caseCompletionDate">Case Completion Date:</label>
               <input id="legal.caseCompletionDate" type="Date" class="form-control" v-model="legalInformation.caseCompletionDate" />
             </b-col>
-            <b-col col md="3">
+            <b-col col md="4">
               <label for="legal.defendantStatus">Defendant Status:</label>
               <b-form-input id="legal.defendantStatus" v-model="legalInformation.defendantStatus" placeholder="Defendant Status" trim></b-form-input>
             </b-col>
-            <b-col col md="3">
-              <label for="income.unemployment">Unemployment:</label>
-              <b-form-input id="income.unemployment" v-model="incomeInformation.unemployment" placeholder="Unemployment Income" trim></b-form-input>
-            </b-col>
-            <b-col col md="3">
+            <b-col col md="4">
               <label for="legal.settlingDate">Next\Last Settling Date:</label>
               <input id="legal.settlingDate" type="Date" class="form-control" v-model="legalInformation.settlingDate" />
             </b-col>
@@ -683,6 +667,8 @@ export default {
         },
         contactInformation: {
           ...this.contactInformation,
+          // ethnicity:  // We need too check if "other" was selected
+                         // If it was, we need to get the value from it
         },
         employmentInformation: {
           ...this.employmentInformation,
@@ -723,7 +709,6 @@ export default {
         employment: "",
         attendedSchool: "",
         graduated: "",
-        schoolsAttended: [],
       },
       // this data can be submitted to backend
       caseNumber: "",
