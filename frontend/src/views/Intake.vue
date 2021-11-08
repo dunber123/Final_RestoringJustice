@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h1>Intake Form</h1>
-    </div>
-    <intake-form></intake-form>
-    <div class="mt-5 submit-btn-container">
-      <b-button size="lg">Submit</b-button>
-    </div>
+    <intake-form @onSubmit="handleSubmit"></intake-form>
   </div>
 </template>
 
@@ -18,6 +12,11 @@ export default {
   components: {
     IntakeForm,
   },
+  methods: {
+    handleSubmit: (data) => {
+      console.log('submitted data', data);
+    }
+  }
 };
 </script>
 
