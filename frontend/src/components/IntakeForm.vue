@@ -145,6 +145,76 @@
             </b-col>
           </b-row>
         </div>
+=======
+      <div class="mt-4">
+        <h2>Contact Information</h2>
+        <!-- Contact Info : First row -->
+        <b-row class="my-2">
+          <b-col col md="3">
+            <label for="contactInformation.homePhone">Home Phone:</label>
+            <b-form-input id="contactInformation.homePhone" v-model="contactInformation.homePhone" placeholder="Home Phone" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.work">Work Phone:</label>
+            <b-form-input id="contact.work" v-model="contactInformation.work" placeholder="Work" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.cell">Cell Phone:</label>
+            <b-form-input id="contact.cell" v-model="contactInformation.cell" placeholder="Cell" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.other">Other:</label>
+            <b-form-input id="contact.other" v-model="contactInformation.other" placeholder="Other" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Contact Info : Second row -->
+        <b-row class="my-2">
+          <b-col col md="3">
+            <label for="contact.personalEmail">Personal Email:</label>
+            <b-form-input id="contact.personalEmail" v-model="contactInformation.personalEmail" placeholder="Personal Email" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.otherEmail">Other Email:</label>
+            <b-form-input id="contact.otherEmail" v-model="contactInformation.otherEmail" placeholder="Other Email" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.language">Language:</label>
+            <b-form-select v-model="selected.language" id="contact.language">
+              <b-form-select-option value="">Select Language</b-form-select-option>
+              <b-form-select-option value="spanish">Spanish</b-form-select-option>
+              <b-form-select-option value="english">English</b-form-select-option>
+              <b-form-select-option value="bilingual">Bilingual</b-form-select-option>
+              <b-form-select-option value="other">Other</b-form-select-option>
+            </b-form-select>
+            <b-form-input v-if="selected.language === 'other'" id="contact.language" v-model="contactInformation.language" placeholder="Enter Language" trim></b-form-input>
+          </b-col>
+          <b-col col md="3">
+            <label for="contact.ethnicity">Ethnicity:</label>
+            <b-form-select v-model="selected.ethnicity" id="contact.ethnicity">
+              <b-form-select-option value="">Select Ethnicity</b-form-select-option>
+              <b-form-select-option value="hispanic\latino">Hispanic\Latino</b-form-select-option>
+              <b-form-select-option value="african\american">African American</b-form-select-option>
+              <b-form-select-option value="white\nonhispanic">White\Non-Hispanic</b-form-select-option>
+              <b-form-select-option value="other">Other</b-form-select-option>
+            </b-form-select>
+            <b-form-input v-if="selected.ethnicity === 'other'" id="contact.ethnicity" v-model="contactInformation.ethnicity" placeholder="Enter Ethnicity" trim></b-form-input>
+          </b-col>
+        </b-row>
+        <!-- Contact Info : Third row -->
+        <b-row class="my-2">
+          <b-col col md="3" class="mt-2">
+            <label for="contact.maritalStatus">Marital Status:</label>
+            <b-form-group id="contact.maritalStatus">
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="single">Single</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="married">Married</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="separated">Separated</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="divorced">Divorced</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="widow">Widow</b-form-radio>
+              <b-form-radio v-model="contactInformation.maritalStatus" name="contact.maritalStatusRadio" value="common law">Common Law</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
 
         <!-- ------------------------------------------------------------------------------------------------------------------ -->
         <!-- CONTACT INFORMATION -->
@@ -380,6 +450,51 @@
             </b-col>
           </b-row>
         </div>
+=======
+      <div class="mt-4">
+        <h2>Health Insurance Information</h2>
+        <!-- Health Info : First row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="4">
+            <b-form-checkbox v-model="insuranceInformation.healthInsurance" value="true">Do you have health insurance?</b-form-checkbox>
+          </b-col>
+          <b-col v-if="insuranceInformation.healthInsurance" col md="8" class="mt-2">
+            <label for="insurance.provider">Select Insurance Provider:</label>
+            <b-form-group id="insurance.provider">
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="private">Private</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="medicaid">Medicaid</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="medicare">Medicare</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="chip">CHIP</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="goldcard">GoldCard</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="wic">WIC</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.insuranceProvider" value="other">Other</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+        <!-- Health Info : Second row -->
+        <b-row class="justify-content-left my-2">
+          <b-col col md="4">
+            <label for="insurance.foodstamps">Do you receive food stamps?:</label>
+            <b-form-group id="insurance.foodstamps">
+              <b-form-radio v-model="insuranceInformation.foodStamps" value="true">Yes</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.foodStamps" value="false">No</b-form-radio>
+            </b-form-group>
+          </b-col>
+          <b-col v-if="insuranceInformation.foodStamps === 'true'" col md="8">
+            <label for="insurance.howMuch">How Much?:</label>
+            <b-form-input id="income.howMuch" v-model="incomeInformation.howMuch" placeholder="How much" trim></b-form-input>
+          </b-col>
+          <b-col v-if="insuranceInformation.foodStamps === 'false'" col md="8">
+            <label for="insurance.whyNot">Why Not?:</label>
+            <b-form-group id="insurance.whyNot">
+              <b-form-radio v-model="insuranceInformation.whyNot" value="do not qualify">Do not qualify</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.whyNot" value="have not applied">Have not applied</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.whyNot" value="application in process">Application in process</b-form-radio>
+              <b-form-radio v-model="insuranceInformation.whyNot" value="need help applying">Need help applying</b-form-radio>
+            </b-form-group>
+          </b-col>
+        </b-row>
+      </div>
 
         <!-- ------------------------------------------------------------------------------------------------------------------ -->
         <!-- HEALTH INSURANCE INFORMATION -->
