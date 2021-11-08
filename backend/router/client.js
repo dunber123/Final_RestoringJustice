@@ -2,6 +2,20 @@ const express = require('express')
 const router = express.Router()
 const Client = require('../models/client')
 
+router.use(express.json());
+router.use(express.urlencoded({ extended: false }));
+
+// Submit intake form
+router.post('/submit-intake', async (req, res) => {
+    try {
+        const newclient = new Client(req.body);
+        await newclient.save();
+        res.status(200).send();
+    } catch (e) {
+        res.status(500).send(e);
+    }
+});
+
 // Getting All //
 router.get('/', async (req, res) => {
     try {
@@ -14,22 +28,19 @@ router.get('/', async (req, res) => {
 
 
 // get one //
-
 router.get('/:id', getClient, async (req, res) => {
     res.send(res.client)
   })
   
 // Create One //
-
 router.post('/', async (req, res) => {
     const client = new Client(req.body)
-
     try {
         const updatedClient = await client.save()
         res.json(updatedClient)
     } catch (err) {
         res.status(400).json({message: err.message}) }
-})
+});
 
 
 // Updating One //
@@ -43,8 +54,6 @@ router.patch('/:id', getClient, async (req, res) => {
         res.status(400).json({message: err.message})
     }
 })
-
-
 
 // Deleting One
 router.delete('/:id', getClient, async (req, res) => {

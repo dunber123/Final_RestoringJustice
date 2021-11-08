@@ -13,15 +13,23 @@ export default {
     IntakeForm,
   },
   methods: {
-    handleSubmit: (data) => {
-      console.log('submitted data', data);
-    }
-  }
+    async handleSubmit(data) {
+      console.log(this.$hostname);
+      const res = await fetch(`${this.$hostname}/client/submit-intake`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(res);
+    },
+  },
 };
 </script>
 
 <style>
-  .submit-btn-container {
-    text-align: center;
-  }
+.submit-btn-container {
+  text-align: center;
+}
 </style>
