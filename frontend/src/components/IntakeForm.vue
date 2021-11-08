@@ -14,8 +14,10 @@
             </div>
           </b-col>
           <b-col col md="5">
-            <label for="clientNumber">Client Number:</label>
+            <div class="form-floating">
             <b-form-input id="clientNumber" v-model="clientNumber" placeholder="Enter Client #" trim></b-form-input>
+             <label for="clientNumber">Client Number:</label>
+             </div>
           </b-col>
         </b-row>
 
@@ -39,16 +41,24 @@
           <!-- General Info : First row -->
           <b-row class="justify-content-center my-2">
             <b-col col md="4">
-              <label for="general.firstName">First Name:</label>
+              <div class="form-floating">
               <b-form-input id="general.firstName" v-model="generalInformation.firstName" placeholder="First Name:" trim></b-form-input>
+              <label for="general.firstName">First Name:</label>
+              </div>
             </b-col>
             <b-col col md="4">
-              <label for="general.lastName">Last Name:</label>
+              <div class="form-floating">
+              
               <b-form-input id="general.lastName" v-model="generalInformation.lastName" placeholder="Last Name:" trim></b-form-input>
+              <label for="general.lastName">Last Name:</label>
+              </div>
             </b-col>
             <b-col col md="4">
-              <label for="general.middleName">Middle Name:</label>
+              <div class="form-floating">
+              
               <b-form-input id="general.middleName" v-model="generalInformation.middleName" placeholder="Middle Name:" trim></b-form-input>
+              <label for="general.middleName">Middle Name:</label>
+              </div>
             </b-col>
           </b-row>
           <!-- General Info : Second row -->
@@ -58,15 +68,21 @@
               <input id="general.birthDate" type="Date" class="form-control" v-model="generalInformation.birthdate" />
             </b-col>
             <b-col col md="6">
-              <label for="general.ssn">SSN:</label>
+              <div class="form-floating">
+           
               <b-form-input id="general.ssn" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
+              <label for="general.ssn">SSN:</label>
+              </div>
             </b-col>
           </b-row>
           <!-- General Info : Third row -->
           <b-row class="justify-content-center my-2">
             <b-col col md="6">
-              <label for="general.identificationNumber">ID/TX Drivers License:</label>
+              <div class="form-floating">
+             
               <b-form-input id="general.identificationNumber" v-model="generalInformation.identificationNumber" placeholder="ID or TX DL" trim></b-form-input>
+              <label for="general.identificationNumber">ID/TX Drivers License:</label>
+              </div>
             </b-col>
             <b-col col md="3">
               <label for="general.isUsCitizen">Is US Citizen?:</label>

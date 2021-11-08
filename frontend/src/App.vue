@@ -24,9 +24,6 @@
             <router-link class="nav-link" to="/summarybyevent">Individuals Per Event Type</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/summarybyzip">Individuals Per Zip Code</router-link>
-          </li>
-          <li class="nav-item">
             <router-link class="nav-link" to="/graph">Graph</router-link>
           </li>
           <li class="nav-item">

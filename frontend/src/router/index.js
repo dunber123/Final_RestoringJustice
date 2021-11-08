@@ -48,11 +48,7 @@ var routes = [
     name: 'summary',
     component: () => import('../components/SummaryEvent')
   },
-  {
-    path: '/summarybyzip/',
-    name: 'summarybyzip',
-    component: () => import('../components/ServiceZip')
-  },
+
   {
     path: '/atthisevent/',
     name: 'atthisevent',
