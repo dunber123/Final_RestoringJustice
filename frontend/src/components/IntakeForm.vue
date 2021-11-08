@@ -8,8 +8,10 @@
       <b-container fluid>
         <b-row class="justify-content-md-center">
           <b-col col md="5">
-            <label for="caseNumber">Case Number:</label>
-            <b-form-input id="caseNumber" v-model="caseNumber" placeholder="Enter Case #" trim></b-form-input>
+            <div class="form-floating">
+              <b-form-input id="caseNumber" v-model="caseNumber" placeholder="Enter Case #" trim></b-form-input>
+              <label for="caseNumber">Case Number:</label>
+            </div>
           </b-col>
           <b-col col md="5">
             <label for="clientNumber">Client Number:</label>
