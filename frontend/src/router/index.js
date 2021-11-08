@@ -13,11 +13,7 @@ var routes = [
     name: 'Intake',
     component: Intake
   },
-  {
-    path: '/createevent',
-    name: 'createevent',
-    component: () => import('../components/CreateEvent')
-  },
+
   {
     path: '/createindividual',
     name: 'createindividual',
@@ -34,21 +30,10 @@ var routes = [
     component: () => import('../components/ListIndividuals')
   },
   {
-    path: '/editevent/:id',
-    name: 'edit-event',
-    component: () => import('../components/EditEvent')
-  },
-  {
     path: '/editindividual/:id',
     name: 'edit-individual',
     component: () => import('../components/EditIndividual')
   },
-  {
-    path: '/summarybyevent/',
-    name: 'summary',
-    component: () => import('../components/SummaryEvent')
-  },
-
   {
     path: '/atthisevent/',
     name: 'atthisevent',
