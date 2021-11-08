@@ -600,7 +600,7 @@
             </b-col>
             <b-col col md="3">
               <label for="charge.0.disposition">Disposition:</label>
-              <b-form-input id="charge.0.disposition" v-model="legalInformation.charges[0].charge" placeholder="Disposition" trim></b-form-input>
+              <b-form-input id="charge.0.disposition" v-model="legalInformation.charges[0].disposition" placeholder="Disposition" trim></b-form-input>
             </b-col>
           </b-row>
           <!-- Legal Info : Sixth row -->
@@ -619,7 +619,7 @@
             </b-col>
             <b-col col md="3">
               <label for="charge.1.disposition">Disposition:</label>
-              <b-form-input id="charge.1.disposition" v-model="legalInformation.charges[1].charge" placeholder="Disposition" trim></b-form-input>
+              <b-form-input id="charge.1.disposition" v-model="legalInformation.charges[1].disposition" placeholder="Disposition" trim></b-form-input>
             </b-col>
           </b-row>
           <!-- Legal Info : Seventh row -->
@@ -638,7 +638,7 @@
             </b-col>
             <b-col col md="3">
               <label for="charge.2.disposition">Disposition:</label>
-              <b-form-input id="charge.2.disposition" v-model="legalInformation.charges[2].charge" placeholder="Disposition" trim></b-form-input>
+              <b-form-input id="charge.2.disposition" v-model="legalInformation.charges[2].disposition" placeholder="Disposition" trim></b-form-input>
             </b-col>
           </b-row>
           <!-- Legal Info : Eight row -->
@@ -657,7 +657,7 @@
             </b-col>
             <b-col col md="3">
               <label for="charge.3.disposition">Disposition:</label>
-              <b-form-input id="charge.3.disposition" v-model="legalInformation.charges[3].charge" placeholder="Disposition" trim></b-form-input>
+              <b-form-input id="charge.3.disposition" v-model="legalInformation.charges[3].disposition" placeholder="Disposition" trim></b-form-input>
             </b-col>
           </b-row>
           <!-- Legal Info : Ninth row -->
@@ -676,7 +676,7 @@
             </b-col>
             <b-col col md="3">
               <label for="charge.4.disposition">Disposition:</label>
-              <b-form-input id="charge.4.disposition" v-model="legalInformation.charges[4].charge" placeholder="Disposition" trim></b-form-input>
+              <b-form-input id="charge.4.disposition" v-model="legalInformation.charges[4].disposition" placeholder="Disposition" trim></b-form-input>
             </b-col>
           </b-row>
         </div>
@@ -694,6 +694,11 @@
 export default {
   methods: {
     submitForm() {
+      // We need too check if "other" was selected. If it was, we need to get the value from it
+      const finalEthnicity = this.selected.ethnicity !== 'other' ? this.selected.ethnicity : this.contactInformation.ethnicity;
+      // Same for language
+      const finalLanguage = this.selected.language !== 'other' ? this.selected.language : this.contactInformation.language;
+
       const dataToEmit = {
         caseNumber: this.caseNumber,
         clientNumber: this.clientNumber,
@@ -707,8 +712,8 @@ export default {
         },
         contactInformation: {
           ...this.contactInformation,
-          // ethnicity:  // We need too check if "other" was selected
-                         // If it was, we need to get the value from it
+          ethnicity: finalEthnicity,
+          language: finalLanguage,
         },
         employmentInformation: {
           ...this.employmentInformation,
@@ -728,16 +733,21 @@ export default {
         },
         legalInformation: {
           ...this.legalInformation,
+          charges: [...this.legalInformation.charges],
         },
       };
-      this.$emit("onSubmit", dataToEmit);
+      this.$emit("onSubmit", JSON.parse(JSON.stringify(dataToEmit)));
     },
   },
   emits: {
     onSubmit: (payload) => {
-      console.log({ payload });
       // Validate fields before emitting
-      return true;
+      if (payload.caseNumber === '' || payload.clientNumber === '' || payload.startDate === null || payload.closeDate === null) {
+        console.log(false)
+        return false;
+      } else {
+        return true;
+      }
     },
   },
   data() {
