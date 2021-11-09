@@ -344,7 +344,6 @@ let clientSchema = new Schema(
       },
       defendentStatus: {
         type: String,
-        required: true,
       },
       bondAmount: {
         type: Number,
