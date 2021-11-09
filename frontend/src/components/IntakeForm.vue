@@ -67,7 +67,7 @@
             </b-col>
             <b-col col md="6">
               <div class="form-floating">
-              <b-form-input id="general.SS" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
+              <b-form-input id="general.SS" v-model="generalInformation.SS" placeholder="SSN" trim></b-form-input>
                <b-form-text id="password-help-block">
                         Your Social Security number must be 10 digits long. Do not include dashes "-".
                     </b-form-text>
@@ -110,7 +110,7 @@
           <b-row class="justify-content-center my-2">
             <b-col col md="5">
               <div class="form-floating">
-              <b-form-input id="residence.address" v-model="residenceInformation.Address" placeholder="Address" trim></b-form-input>
+              <b-form-input id="residence.address" v-model="residenceInformation.address" placeholder="Address" trim></b-form-input>
               <label for="residence.address">Street Address:</label>
               </div>
             </b-col>
@@ -776,13 +776,13 @@ export default {
         firstName: "",
         middleName: "",
         birthdate: "",
-        ssn: "",
-        isUsCitizen: null,
+        SS: "",
+        UsCitizen: null,
         gender: null,
         identificationNumber: "",
       },
       residenceInformation: {
-        streetAddress: "",
+        address: "",
         city: "",
         state: "",
         zip: "",
