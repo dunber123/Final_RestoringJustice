@@ -128,7 +128,7 @@
             </b-col>
              <b-col col md="2">
               <div class="form-floating">
-              <b-form-input id="residence.zip" v-model="residenceInformation.state" placeholder="Zip" trim></b-form-input>
+              <b-form-input id="residence.zip" v-model="residenceInformation.zip" placeholder="Zip" trim></b-form-input>
               <label for="residence.zip">Zip Code:</label>
               </div>
             </b-col>
