@@ -108,7 +108,7 @@
           <h2>Residence Information</h2>
           <!-- Residence Info : First row -->
           <b-row class="justify-content-center my-2">
-            <b-col col md="6">
+            <b-col col md="5">
               <div class="form-floating">
               <b-form-input id="residence.address" v-model="residenceInformation.streetAddress" placeholder="Address" trim></b-form-input>
               <label for="residence.address">Street Address:</label>
@@ -120,10 +120,16 @@
               <label for="residence.city">City:</label>
               </div>
             </b-col>
-            <b-col col md="3">
+            <b-col col md="2">
               <div class="form-floating">
               <b-form-input id="residence.state" v-model="residenceInformation.state" placeholder="State" trim></b-form-input>
               <label for="residence.state">State:</label>
+              </div>
+            </b-col>
+             <b-col col md="2">
+              <div class="form-floating">
+              <b-form-input id="residence.zip" v-model="residenceInformation.state" placeholder="Zip" trim></b-form-input>
+              <label for="residence.zip">Zip Code:</label>
               </div>
             </b-col>
           </b-row>

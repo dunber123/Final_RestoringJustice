@@ -123,15 +123,14 @@ let clientSchema = new Schema(
       },
       utilitiesIncluded: {
         type: Boolean,
-        required: true,
+        
       },
       rentSubsidized: {
         type: Boolean,
-        required: true,
+       
       },
       singleParent: {
         type: Boolean,
-        required: true,
       },
     },
     contactInformation: {
@@ -203,7 +202,6 @@ let clientSchema = new Schema(
       },
       graduated: {
         type: String,
-        required: true,
       },
       certification: {
         type: String,
@@ -291,15 +289,19 @@ let clientSchema = new Schema(
       //legal information regarding previous cases and their outcomes
       legalCaseNumber: {
         type: Number,
+        required: true,
       },
       mentalCompetency: {
         type: Boolean,
+        required: true,
       },
       fileDate: {
         type: Date,
+        required: true,
       },
       priorAttorneyName: {
         type: String,
+        required: true,
       },
       priorAttorneyCaseload: {
         type: Number,
@@ -323,27 +325,34 @@ let clientSchema = new Schema(
       ],
       currentCourt: {
         type: String,
+        required: true,
       },
       courtAddress: {
         type: String,
+        required: true,
       },
       judgeName: {
         type: String,
+        required: true,
       },
       courtType: {
         type: String,
+        required: true,
       },
       caseCompletionDate: {
         type: Date,
+        required: true,
       },
       defendentStatus: {
         type: String,
+        required: true,
       },
       bondAmount: {
         type: Number,
       },
       settlingDate: {
         type: Date,
+        required: true,
       },
     }],
     socialServiceReferrals: [
