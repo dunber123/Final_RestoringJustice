@@ -63,15 +63,15 @@
           <b-row class="justify-content-center my-2">
             <b-col col md="6">
               <label for="general.birthDate">Birth Date:</label>
-              <input id="general.birthDate" type="Date" class="form-control" v-model="generalInformation.birthdate" />
+              <input id="general.birthDate" type="Date" class="form-control" v-model="generalInformation.birthDate" />
             </b-col>
             <b-col col md="6">
               <div class="form-floating">
-              <b-form-input id="general.ssn" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
+              <b-form-input id="general.SS" v-model="generalInformation.ssn" placeholder="SSN" trim></b-form-input>
                <b-form-text id="password-help-block">
                         Your Social Security number must be 10 digits long. Do not include dashes "-".
                     </b-form-text>
-              <label for="general.ssn">SSN:</label>
+              <label for="general.SS">SSN:</label>
               </div>
             </b-col>
           </b-row>
@@ -79,15 +79,15 @@
           <b-row class="justify-content-center my-2">
             <b-col col md="6">
               <div class="form-floating">
-              <b-form-input id="general.identificationNumber" v-model="generalInformation.identificationNumber" placeholder="ID or TX DL" trim></b-form-input>
-              <label for="general.identificationNumber">ID/TX Drivers License:</label>
+              <b-form-input id="general.idDriverLicense" v-model="generalInformation.idDriverLicense" placeholder="ID or TX DL" trim></b-form-input>
+              <label for="general.idDriverLicense">ID/TX Drivers License:</label>
               </div>
             </b-col>
             <b-col col md="3">
-              <label for="general.isUsCitizen">Is US Citizen?:</label>
-              <b-form-group id="general.isUsCitizen">
-                <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.y" value="true">Yes</b-form-radio>
-                <b-form-radio v-model="generalInformation.isUsCitizen" name="general.isUsCitizen.n" value="false">No</b-form-radio>
+              <label for="general.UsCitizen">Is US Citizen?:</label>
+              <b-form-group id="general.UsCitizen">
+                <b-form-radio v-model="generalInformation.usCitizen" name="general.UsCitizen.y" value="true">Yes</b-form-radio>
+                <b-form-radio v-model="generalInformation.usCitizen" name="general.UsCitizen.n" value="false">No</b-form-radio>
               </b-form-group>
             </b-col>
             <b-col col md="3">
@@ -110,7 +110,7 @@
           <b-row class="justify-content-center my-2">
             <b-col col md="5">
               <div class="form-floating">
-              <b-form-input id="residence.address" v-model="residenceInformation.streetAddress" placeholder="Address" trim></b-form-input>
+              <b-form-input id="residence.address" v-model="residenceInformation.Address" placeholder="Address" trim></b-form-input>
               <label for="residence.address">Street Address:</label>
               </div>
             </b-col>
@@ -790,7 +790,7 @@ export default {
         totalRent: "",
         utilitiesIncluded: false, // Default to false since we only use a checkbox
         rentSubsidized: false, // Default to false since we only use a checkbox
-        singleParent: "",
+        singleParent: false,
         heightWeight: "",
         inCustody: false, // Default to false since we only use a checkbox
         inCustodyLocation: null,

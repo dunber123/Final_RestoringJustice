@@ -23,7 +23,6 @@ let clientSchema = new Schema(
     },
     caseManager: {
       type: String,
-      required: true,
     },
     startDate: {
       type: Date,
