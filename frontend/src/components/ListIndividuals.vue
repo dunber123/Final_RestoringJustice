@@ -8,6 +8,7 @@
             <th>Case Number</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Referrals</th>
           </tr>
         </thead>
         <tbody>
