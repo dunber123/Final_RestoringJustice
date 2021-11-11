@@ -56,7 +56,6 @@
             </tr>
           </tbody>
         </table>
-        {{ selectedClient }}
         </div>
       </template>
     </modal>
