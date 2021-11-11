@@ -83,7 +83,7 @@ export default {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          this.selectedClient = data;
+          this.selectedClient = data[0];
         })
         .then(() => this.showModal = true)
         .catch((e) => console.log(e));
