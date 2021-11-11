@@ -68,7 +68,7 @@ export default {
       try {
         this.error = null;
         this.loading = true;
-        const url = `http://localhost:3000/client`;
+        const url = "/client";
         const response = await axios.get(url);
         //"re-organizing" - mapping json from the response
         this.labels = response.data.map((item) => item.caseNumber);
