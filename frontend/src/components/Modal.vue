@@ -1,4 +1,5 @@
 <template>
+<div class="container mt-5">
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
@@ -7,12 +8,13 @@
             default header
           </slot>
         </div>
-
+      <div class="container mt-5">
         <div class="modal-body">
           <slot name="body">
             default body
           </slot>
         </div>
+      </div>
 
         <div class="modal-footer">
           <slot name="footer">
@@ -25,6 +27,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -53,7 +56,7 @@ export default {};
 }
 
 .modal-container {
-  width: 300px;
+  width: 0px auto;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
