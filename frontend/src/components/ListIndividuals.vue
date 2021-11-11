@@ -34,7 +34,7 @@ export default {
   },
   // this is using created hook S
   created() {
-    let apiURL1 = `${this.$hostname}/client`; // 'http://localhost:3000/client';
+    let apiURL1 = `/client`; // 'http://localhost:3000/client';
     axios
       .get(apiURL1)
       .then((res) => {

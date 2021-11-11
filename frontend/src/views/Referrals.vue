@@ -97,14 +97,14 @@ export default {
       console.log({dataToSave});
       // this is where you would call the update route to update the edited referral
       // Something like: (you will need to create the route in express)
-      // fetch(`${this.$hostname}/update-referral/${this.selectedClient.caseNumber}/${dataToSave._id}`, { body: dataToSave, headers: { 'Content-Type': 'application/json' } });
+      // fetch(`/update-referral/${this.selectedClient.caseNumber}/${dataToSave._id}`, { body: dataToSave, headers: { 'Content-Type': 'application/json' } });
     },
     setEdit(e) {
       this.edit = e;
       console.log(this.edit);
     },
     getReferrals(casemanager, casenumber, firstname, lastname) {
-      const url = `${this.$hostname}/client/referrals/${casemanager}/${casenumber}/${firstname}/${lastname}`;
+      const url = `/client/referrals/${casemanager}/${casenumber}/${firstname}/${lastname}`;
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
@@ -117,7 +117,7 @@ export default {
   },
   // this is using created hook S
   created() {
-    const url = `${this.$hostname}/client`;
+    const url = `/client`;
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => (this.clients = data))

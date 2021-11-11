@@ -14,8 +14,7 @@ export default {
   },
   methods: {
     async handleSubmit(data) {
-      console.log(this.$hostname);
-      const res = await fetch(`${this.$hostname}/client/submit-intake`, {
+      const res = await fetch(`/client/submit-intake`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
