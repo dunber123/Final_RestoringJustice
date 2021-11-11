@@ -47,6 +47,7 @@
             </thead>
             <tbody>
               <tr v-for="(r, i) in selectedClient.socialServiceReferrals" :key="i">
+                <!-- regular row, no editing -->
                 <template v-if="edit === null || edit._id !== r._id">
                   <td>{{ r.caseManagerName }}</td>
                   <td>{{ r.date }}</td>
@@ -57,15 +58,16 @@
                   <td>{{ r.notes }}</td>
                   <td><b-button @click="edit = r">Edit</b-button></td>
                 </template>
+                <!-- if edit was clicked, we set data.edit to this row, which shows this as the table data: -->
                 <template v-if="edit !== null && edit._id === r._id">
                   <td><b-form-input v-model="r.caseManagerName"></b-form-input></td>
-                  <td>{{ r.date }}</td>
-                  <td>{{ r.isReferralUsed }}</td>
+                  <td><input type="Date" class="form-control" v-model="r.date" /></td>
+                  <td><b-form-select v-model="r.isReferralUsed" :options="[{ value: true, text: 'true' }, { value: false, text: 'false' }]"></b-form-select></td>
                   <td>{{ r.isResolved }}</td>
                   <td>{{ r.type }}</td>
                   <td>{{ r.timeSpent }}</td>
                   <td>{{ r.notes }}</td>
-                  <td><b-button @click="console.log(r)">Save</b-button></td>
+                  <td><b-button @click="save(r)">Save</b-button></td>
                 </template>
               </tr>
             </tbody>
@@ -91,6 +93,12 @@ export default {
     };
   },
   methods: {
+    save(dataToSave) {
+      console.log({dataToSave});
+      // this is where you would call the update route to update the edited referral
+      // Something like: (you will need to create the route in express)
+      // fetch(`${this.$hostname}/update-referral/${this.selectedClient.caseNumber}/${dataToSave._id}`, { body: dataToSave, headers: { 'Content-Type': 'application/json' } });
+    },
     setEdit(e) {
       this.edit = e;
       console.log(this.edit);
