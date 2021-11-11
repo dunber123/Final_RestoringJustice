@@ -31,7 +31,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showModal: false
+    }
+  }
+};
 </script>
 
 <style>
