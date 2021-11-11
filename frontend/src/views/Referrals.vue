@@ -31,9 +31,7 @@
         <h3>Header!</h3>
       </template>
       <template v-slot:body>
-        <div v-if="selectedClient !== null">
-          <b-table striped :items="selectedClient.socialServiceReferrals"></b-table>
-          <!--
+        <div>
           <table v-if="selectedClient !== null" class="table table-striped">
             <thead class="thead-dark">
               <tr>
@@ -44,21 +42,34 @@
                 <th>Type</th>
                 <th>Time Spent</th>
                 <th>Notes</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(r, i) in selectedClient.socialServiceReferrals" :key="i">
-                <td>{{ r.caseManagerName }}</td>
-                <td>{{ r.date }}</td>
-                <td>{{ r.isReferralUsed }}</td>
-                <td>{{ r.isResolved }}</td>
-                <td>{{ r.type }}</td>
-                <td>{{ r.timeSpent }}</td>
-                <td>{{ r.notes }}</td>
+                <template v-if="edit === null || edit._id !== r._id">
+                  <td>{{ r.caseManagerName }}</td>
+                  <td>{{ r.date }}</td>
+                  <td>{{ r.isReferralUsed }}</td>
+                  <td>{{ r.isResolved }}</td>
+                  <td>{{ r.type }}</td>
+                  <td>{{ r.timeSpent }}</td>
+                  <td>{{ r.notes }}</td>
+                  <td><b-button @click="edit = r">Edit</b-button></td>
+                </template>
+                <template v-if="edit !== null && edit._id === r._id">
+                  <td><b-form-input :value="r.caseManagerName"></b-form-input></td>
+                  <td>{{ r.date }}</td>
+                  <td>{{ r.isReferralUsed }}</td>
+                  <td>{{ r.isResolved }}</td>
+                  <td>{{ r.type }}</td>
+                  <td>{{ r.timeSpent }}</td>
+                  <td>{{ r.notes }}</td>
+                  <td><b-button @click="console.log(r)">Save</b-button></td>
+                </template>
               </tr>
             </tbody>
           </table>
-          -->
         </div>
       </template>
     </modal>
@@ -76,9 +87,14 @@ export default {
       clients: [],
       selectedClient: null,
       showModal: false,
+      edit: null,
     };
   },
   methods: {
+    setEdit(e) {
+      this.edit = e;
+      console.log(this.edit);
+    },
     getReferrals(casemanager, casenumber, firstname, lastname) {
       const url = `${this.$hostname}/client/referrals/${casemanager}/${casenumber}/${firstname}/${lastname}`;
       fetch(url)
