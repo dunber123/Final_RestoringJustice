@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Intake from '../views/Intake.vue';
 import Referrals from '../views/Referrals.vue';
-import ReferralsTracker from '../views/ReferralsTracker.vue';
 
 var routes = [
   {
@@ -19,11 +18,6 @@ var routes = [
     path: '/referrals',
     name: 'Referrals',
     component: Referrals,
-  },
-  {
-    path: '/referrals/:caseManager/:caseNumber/:firstName/:lastName',
-    name: 'ReferralsTracker',
-    component: ReferralsTracker
   },
   {
     path: '/createindividual',
