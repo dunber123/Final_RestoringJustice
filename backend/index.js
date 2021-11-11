@@ -40,9 +40,10 @@ app.use((_req, res) => {
 });
 
 // Setup app port
-process.env.port = process.env.port || 3000;
+/* HEROKU WON'T WORK IF WE SET PORT SINCE THEY HANDLE THAT */
+// process.env.port = process.env.port || 3000;
 
 // listen for requests
-app.listen(process.env.port, function () {
-  console.log("Ready to Go! Backend listening on port : " + process.env.port);
+app.listen(process.env.PORT, '0.0.0.0', function () {
+  console.log("Ready to Go! Backend listening on port : " + process.env.PORT);
 });
