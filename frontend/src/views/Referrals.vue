@@ -31,31 +31,34 @@
         <h3>Header!</h3>
       </template>
       <template v-slot:body>
-        <div>
-        <table v-if="selectedClient !== null" class="table table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th>Case Manager</th>
-              <th>Date</th>
-              <th>Used?</th>
-              <th>Resolved?</th>
-              <th>Type</th>
-              <th>Time Spent</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(r, i) in selectedClient.socialServiceReferrals" :key="i">
-              <td>{{ r.caseManagerName }}</td>
-              <td>{{ r.date }}</td>
-              <td>{{ r.isReferralUsed }}</td>
-              <td>{{ r.isResolved }}</td>
-              <td>{{ r.type }}</td>
-              <td>{{ r.timeSpent }}</td>
-              <td>{{ r.notes }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div v-if="selectedClient !== null">
+          <b-table striped :items="selectedClient.socialServiceReferrals"></b-table>
+          <!--
+          <table v-if="selectedClient !== null" class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>Case Manager</th>
+                <th>Date</th>
+                <th>Used?</th>
+                <th>Resolved?</th>
+                <th>Type</th>
+                <th>Time Spent</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(r, i) in selectedClient.socialServiceReferrals" :key="i">
+                <td>{{ r.caseManagerName }}</td>
+                <td>{{ r.date }}</td>
+                <td>{{ r.isReferralUsed }}</td>
+                <td>{{ r.isResolved }}</td>
+                <td>{{ r.type }}</td>
+                <td>{{ r.timeSpent }}</td>
+                <td>{{ r.notes }}</td>
+              </tr>
+            </tbody>
+          </table>
+          -->
         </div>
       </template>
     </modal>
@@ -84,7 +87,7 @@ export default {
           console.log(data);
           this.selectedClient = data[0];
         })
-        .then(() => this.showModal = true)
+        .then(() => (this.showModal = true))
         .catch((e) => console.log(e));
     },
   },
