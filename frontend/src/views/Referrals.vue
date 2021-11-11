@@ -58,7 +58,7 @@
                   <td><b-button @click="edit = r">Edit</b-button></td>
                 </template>
                 <template v-if="edit !== null && edit._id === r._id">
-                  <td><b-form-input :value="r.caseManagerName"></b-form-input></td>
+                  <td><b-form-input v-model="r.caseManagerName"></b-form-input></td>
                   <td>{{ r.date }}</td>
                   <td>{{ r.isReferralUsed }}</td>
                   <td>{{ r.isResolved }}</td>
