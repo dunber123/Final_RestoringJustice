@@ -47,6 +47,7 @@
             </thead>
             <tbody>
               <tr v-for="(r, i) in selectedClient.socialServiceReferrals" :key="i">
+                <!-- regular row, no editing -->
                 <template v-if="edit === null || edit._id !== r._id">
                   <td>{{ r.caseManagerName }}</td>
                   <td>{{ r.date }}</td>
@@ -57,6 +58,7 @@
                   <td>{{ r.notes }}</td>
                   <td><b-button @click="edit = r">Edit</b-button></td>
                 </template>
+                <!-- if edit was clicked, we set data.edit to this row, which shows this as the table data: -->
                 <template v-if="edit !== null && edit._id === r._id">
                   <td><b-form-input v-model="r.caseManagerName"></b-form-input></td>
                   <td><input type="Date" class="form-control" v-model="r.date" /></td>
