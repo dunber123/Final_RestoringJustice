@@ -10,8 +10,5 @@
     "heroku-postbuild": "npm run build"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "chart.js": "^3.6.0"
-  }
+  "license": "ISC"
 }
