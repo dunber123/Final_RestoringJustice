@@ -45,7 +45,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(r, i) in selectedClientReferrals" :key="i">
+            <tr v-for="(r, i) in selectedClient.socialServiceReferrals" :key="i">
               <td>{{ r.caseManagerName }}</td>
               <td>{{ r.date }}</td>
               <td>{{ r.isReferralUsed }}</td>
@@ -56,7 +56,7 @@
             </tr>
           </tbody>
         </table>
-        {{ JSON.stringify(selectedClientReferrals, null, 2) }}
+        {{ selectedClient }}
         </div>
       </template>
     </modal>
@@ -72,7 +72,7 @@ export default {
   data() {
     return {
       clients: [],
-      selectedClientReferrals: null,
+      selectedClient: null,
       showModal: false,
     };
   },
@@ -83,7 +83,7 @@ export default {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          this.selectedClientReferrals = data.socialServiceReferrals;
+          this.selectedClient = data;
         })
         .then(() => this.showModal = true)
         .catch((e) => console.log(e));
