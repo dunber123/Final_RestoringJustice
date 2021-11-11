@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Intake from '../views/Intake.vue';
 import Referrals from '../views/Referrals.vue';
+import VueChartJS from '@/views/Graph.vue';
+import About from '@/views/About.vue'
 
 var routes = [
   {
@@ -33,16 +35,18 @@ var routes = [
     path: '/viewindividual',
     name: 'viewindividual',
     component: () => import('../components/ListIndividuals')
+    
+  },
+
+  {
+    path: '/Graph',
+    name: 'VueChartJS',
+    component: VueChartJS
   },
   {
-    path: '/editindividual/:id',
-    name: 'edit-individual',
-    component: () => import('../components/EditIndividual')
-  },
-  {
-    path: '/atthisevent/',
-    name: 'atthisevent',
-    component: () => import('../components/IndividualAtEvent')
+    path: '/About',
+    name: 'About',
+    component: About
   }
 ];
 
