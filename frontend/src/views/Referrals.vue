@@ -31,6 +31,7 @@
         <h3>Header!</h3>
       </template>
       <template v-slot:body>
+        <div>
         <table v-if="selectedClient !== null" class="table table-striped">
           <thead class="thead-dark">
             <tr>
@@ -44,7 +45,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="r in selectedClient.socialServiceReferrals" :key="r._id">
+            <tr v-for="(r, i) in selectedClientReferrals" :key="i">
               <td>{{ r.caseManagerName }}</td>
               <td>{{ r.date }}</td>
               <td>{{ r.isReferralUsed }}</td>
@@ -55,6 +56,8 @@
             </tr>
           </tbody>
         </table>
+        {{ JSON.stringify(selectedClientReferrals, null, 2) }}
+        </div>
       </template>
     </modal>
   </div>
@@ -69,7 +72,7 @@ export default {
   data() {
     return {
       clients: [],
-      selectedClient: null,
+      selectedClientReferrals: null,
       showModal: false,
     };
   },
@@ -80,7 +83,7 @@ export default {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          this.selectedClient = data;
+          this.selectedClientReferrals = data.socialServiceReferrals;
         })
         .then(() => this.showModal = true)
         .catch((e) => console.log(e));
