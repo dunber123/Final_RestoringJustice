@@ -81,8 +81,8 @@ export default {
         .then((data) => {
           console.log(data);
           this.selectedClient = data;
-          this.showModal = true;
         })
+        .then(() => this.showModal = true)
         .catch((e) => console.log(e));
     },
   },
