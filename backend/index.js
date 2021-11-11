@@ -45,5 +45,5 @@ app.use((_req, res) => {
 
 // listen for requests
 app.listen(process.env.PORT, '0.0.0.0', function () {
-  console.log("Ready to Go! Backend listening on port : " + process.env.port);
+  console.log("Ready to Go! Backend listening on port : " + process.env.PORT);
 });
