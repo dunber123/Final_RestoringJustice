@@ -1,13 +1,13 @@
 <template>
   <div class="about">
-    <h1>About Restoring Justice <img :src="image" alt="Restoring Justice Logo" width="25%"></h1>
+    <h1>About Restoring Justice <img :src="image" alt="Restoring Justice Logo" width="25%"></h1><!--Providing a brief description of Restoring Justice's goals and responsibilities from their website-->
         <p1>Restoring Justice is a 501(c)(3) non profit organization based in Houston, Texas. We provide holistic legal defense and social services<br>
         to clients in need of public legal defense. In addition to providing legal support, Restoring Justice provides clients with access<br>
         to social services such as nutrition, housing, clothing, transportation, immigration, disability, job training, substance abuse and others.<br>
         More than just social services, Restoring justice seeks to mitigate the effects of racial disparity and harm caused by arrests and incarcerations and to eliminate mass incarcerations.<br>
         Ultimately, Restoring Justice hopes to enact positive reform to our legal defense and criminal justice system to better enfranchise those in need of aid.</p1>
         <hr>
-        <h3>Contact Us</h3>
+        <h3>Contact Us</h3> <!--adding contact information for Restoring Justice-->
         <address>
             <p>
                 P.O. Box 2813<br>

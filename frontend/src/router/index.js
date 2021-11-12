@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Intake from '../views/Intake.vue';
+import VueChartJS from '@/views/GraphAlpha.vue';
 import Referrals from '../views/Referrals.vue';
-import VueChartJS from '@/views/Graph.vue';
 import About from '@/views/About.vue'
 
-var routes = [
+var routes = [ //creating routes based on each .vue file for each page
   {
     path: '/',
     name: 'Home',
@@ -21,23 +21,12 @@ var routes = [
     name: 'Referrals',
     component: Referrals,
   },
-  {
-    path: '/createindividual',
-    name: 'createindividual',
-    component: () => import('../components/CreateIndividual')
-  },
+  
   {
     path: '/ListIndividuals',
     name: 'ListIndividuals',
-    component: () => import('../components/ListIndividuals')
+    component: () => import('../components/ListIndividuals') //importing the List Individuals component
   },
-  {
-    path: '/viewindividual',
-    name: 'viewindividual',
-    component: () => import('../components/ListIndividuals')
-    
-  },
-
   {
     path: '/Graph',
     name: 'VueChartJS',
@@ -48,6 +37,7 @@ var routes = [
     name: 'About',
     component: About
   }
+ 
 ];
 
 const router = createRouter({
