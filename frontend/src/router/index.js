@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Intake from '../views/Intake.vue';
+
 import Referrals from '../views/Referrals.vue';
 import About from '@/views/About.vue'
 
@@ -25,11 +26,6 @@ var routes = [ //creating routes based on each .vue file for each page
     path: '/ListIndividuals',
     name: 'ListIndividuals',
     component: () => import('../components/ListIndividuals') //importing the List Individuals component
-  },
-  {
-    path: '/Graph',
-    name: 'VueChartJS',
-    component: VueChartJS
   },
   {
     path: '/About',
