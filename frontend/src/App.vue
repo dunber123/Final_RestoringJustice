@@ -11,14 +11,8 @@
          <li class="nav-item">
             <router-link class="nav-link" to="/ListIndividuals">View All Individuals</router-link> <!-- Add search bar or sort bar? -->
           </li>
-         <li class="nav-item">
+            <li class="nav-item">
             <router-link class="nav-link" to="/referrals">Referrals</router-link> 
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/createindividual">View Single Individual</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/summarybyevent">Individuals Per Event Type</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/graph">Graph</router-link>
