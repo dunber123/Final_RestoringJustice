@@ -8,6 +8,9 @@
             <th>Case Number</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Start Date</th>
+            <th>Legal Information</th>
+            <th>Social Service Information</th>
             <th>Referrals</th>
           </tr>
         </thead>
@@ -17,6 +20,10 @@
             <td>{{ client.caseNumber }}</td>
             <td>{{ client.generalInformation.firstName }}</td>
             <td>{{ client.generalInformation.lastName }}</td>
+            <td>{{ client.startDate }}</td>
+            <td>{{ client.legalInformation }}</td>
+            <td>{{ client.socialServiceInformation }}</td>
+
           </tr>
         </tbody>
       </table>
@@ -34,7 +41,7 @@ export default {
   },
   // this is using created hook S
   created() {
-    let apiURL1 = `${this.$hostname}/client`; // 'http://localhost:3000/client';
+    let apiURL1 = `/client`; // 'http://localhost:3000/client';
     axios
       .get(apiURL1)
       .then((res) => {

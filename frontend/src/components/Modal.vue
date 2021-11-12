@@ -5,13 +5,13 @@
       <div class="modal-container">
         <div class="modal-header">
           <slot name="header">
-            default header
+            Referrals
           </slot>
         </div>
       <div class="container mt-5">
         <div class="modal-body">
           <slot name="body">
-            default body
+          
           </slot>
         </div>
       </div>
