@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Intake from '../views/Intake.vue';
-import VueChartJS from '@/views/GraphAlpha.vue';
 import Referrals from '../views/Referrals.vue';
 import About from '@/views/About.vue'
 
